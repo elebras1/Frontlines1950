@@ -1,0 +1,7 @@
+Afficher le nombre de regiment de chaque Etat sur la carte
+
+Gestion de l'affichage des noms et regiments selon le zoom de la camera du jeu
+
+Creer une fenetre debug, class associé
+
+Corriger les crash quand spamclik
