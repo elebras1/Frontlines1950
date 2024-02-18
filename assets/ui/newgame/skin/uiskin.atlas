@@ -11,7 +11,7 @@ impact_20_blue
   orig: 512, 512
   offset: 0, 0
   index: -1
-sitka_white_16
+sitka_16_white
   rotate: false
   xy: 1, 248
   size: 512, 512

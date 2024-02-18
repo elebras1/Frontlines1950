@@ -3,7 +3,7 @@ atlasData: {
 	atlasCurrent: true
 	drawables: [
 		{
-			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/topbar/defcon_buttons_0.png
+			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/mainmenu/frontend_button_big.png
 			bgColor: {
 				r: 1
 				g: 1
@@ -12,7 +12,7 @@ atlasData: {
 			}
 			tint: null
 			tintName: null
-			name: defcon_buttons_0
+			name: frontend_button_big
 			tiled: false
 			minWidth: -1
 			minHeight: -1
@@ -23,7 +23,7 @@ atlasData: {
 			hidden: false
 		}
 		{
-			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/topbar/defcon_buttons_1.png
+			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/mainmenu/frontend_button_big_down.png
 			bgColor: {
 				r: 1
 				g: 1
@@ -32,7 +32,7 @@ atlasData: {
 			}
 			tint: null
 			tintName: null
-			name: defcon_buttons_1
+			name: frontend_button_big_down
 			tiled: false
 			minWidth: -1
 			minHeight: -1
@@ -43,7 +43,7 @@ atlasData: {
 			hidden: false
 		}
 		{
-			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/topbar/defcon_buttons_2.png
+			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/mainmenu/frontend_button_exit.png
 			bgColor: {
 				r: 1
 				g: 1
@@ -52,7 +52,7 @@ atlasData: {
 			}
 			tint: null
 			tintName: null
-			name: defcon_buttons_2
+			name: frontend_button_exit
 			tiled: false
 			minWidth: -1
 			minHeight: -1
@@ -63,7 +63,7 @@ atlasData: {
 			hidden: false
 		}
 		{
-			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/topbar/defcon_buttons_3.png
+			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/mainmenu/frontend_button_exit_down.png
 			bgColor: {
 				r: 1
 				g: 1
@@ -72,7 +72,7 @@ atlasData: {
 			}
 			tint: null
 			tintName: null
-			name: defcon_buttons_3
+			name: frontend_button_exit_down
 			tiled: false
 			minWidth: -1
 			minHeight: -1
@@ -83,7 +83,7 @@ atlasData: {
 			hidden: false
 		}
 		{
-			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/topbar/defcon_buttons_4.png
+			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/mainmenu/frontend_button_small.png
 			bgColor: {
 				r: 1
 				g: 1
@@ -92,7 +92,7 @@ atlasData: {
 			}
 			tint: null
 			tintName: null
-			name: defcon_buttons_4
+			name: frontend_button_small
 			tiled: false
 			minWidth: -1
 			minHeight: -1
@@ -103,7 +103,7 @@ atlasData: {
 			hidden: false
 		}
 		{
-			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/topbar/defcon_buttons_5.png
+			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/mainmenu/frontend_button_small_down.png
 			bgColor: {
 				r: 1
 				g: 1
@@ -112,7 +112,7 @@ atlasData: {
 			}
 			tint: null
 			tintName: null
-			name: defcon_buttons_5
+			name: frontend_button_small_down
 			tiled: false
 			minWidth: -1
 			minHeight: -1
@@ -123,7 +123,7 @@ atlasData: {
 			hidden: false
 		}
 		{
-			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/topbar/icon_dissent_small_blue.png
+			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/mainmenu/frontend_main_bg.png
 			bgColor: {
 				r: 1
 				g: 1
@@ -132,7 +132,7 @@ atlasData: {
 			}
 			tint: null
 			tintName: null
-			name: icon_dissent_small_blue
+			name: frontend_main_bg
 			tiled: false
 			minWidth: -1
 			minHeight: -1
@@ -143,7 +143,7 @@ atlasData: {
 			hidden: false
 		}
 		{
-			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/topbar/icon_dissent_small_green.png
+			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/mainmenu/frontend_mainmenu_bg.png
 			bgColor: {
 				r: 1
 				g: 1
@@ -152,1107 +152,7 @@ atlasData: {
 			}
 			tint: null
 			tintName: null
-			name: icon_dissent_small_green
-			tiled: false
-			minWidth: -1
-			minHeight: -1
-			customized: false
-			tenPatchData: null
-			tvgData: null
-			type: TEXTURE
-			hidden: false
-		}
-		{
-			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/topbar/icon_dissent_small_red.png
-			bgColor: {
-				r: 1
-				g: 1
-				b: 1
-				a: 1
-			}
-			tint: null
-			tintName: null
-			name: icon_dissent_small_red
-			tiled: false
-			minWidth: -1
-			minHeight: -1
-			customized: false
-			tenPatchData: null
-			tvgData: null
-			type: TEXTURE
-			hidden: false
-		}
-		{
-			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/topbar/icon_fuel_small_blue.png
-			bgColor: {
-				r: 1
-				g: 1
-				b: 1
-				a: 1
-			}
-			tint: null
-			tintName: null
-			name: icon_fuel_small_blue
-			tiled: false
-			minWidth: -1
-			minHeight: -1
-			customized: false
-			tenPatchData: null
-			tvgData: null
-			type: TEXTURE
-			hidden: false
-		}
-		{
-			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/topbar/icon_fuel_small_green.png
-			bgColor: {
-				r: 1
-				g: 1
-				b: 1
-				a: 1
-			}
-			tint: null
-			tintName: null
-			name: icon_fuel_small_green
-			tiled: false
-			minWidth: -1
-			minHeight: -1
-			customized: false
-			tenPatchData: null
-			tvgData: null
-			type: TEXTURE
-			hidden: false
-		}
-		{
-			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/topbar/icon_fuel_small_red.png
-			bgColor: {
-				r: 1
-				g: 1
-				b: 1
-				a: 1
-			}
-			tint: null
-			tintName: null
-			name: icon_fuel_small_red
-			tiled: false
-			minWidth: -1
-			minHeight: -1
-			customized: false
-			tenPatchData: null
-			tvgData: null
-			type: TEXTURE
-			hidden: false
-		}
-		{
-			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/topbar/icon_gdp_small_blue.png
-			bgColor: {
-				r: 1
-				g: 1
-				b: 1
-				a: 1
-			}
-			tint: null
-			tintName: null
-			name: icon_gdp_small_blue
-			tiled: false
-			minWidth: -1
-			minHeight: -1
-			customized: false
-			tenPatchData: null
-			tvgData: null
-			type: TEXTURE
-			hidden: false
-		}
-		{
-			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/topbar/icon_gdp_small_green.png
-			bgColor: {
-				r: 1
-				g: 1
-				b: 1
-				a: 1
-			}
-			tint: null
-			tintName: null
-			name: icon_gdp_small_green
-			tiled: false
-			minWidth: -1
-			minHeight: -1
-			customized: false
-			tenPatchData: null
-			tvgData: null
-			type: TEXTURE
-			hidden: false
-		}
-		{
-			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/topbar/icon_gdp_small_red.png
-			bgColor: {
-				r: 1
-				g: 1
-				b: 1
-				a: 1
-			}
-			tint: null
-			tintName: null
-			name: icon_gdp_small_red
-			tiled: false
-			minWidth: -1
-			minHeight: -1
-			customized: false
-			tenPatchData: null
-			tvgData: null
-			type: TEXTURE
-			hidden: false
-		}
-		{
-			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/topbar/icon_leadership_small_blue.png
-			bgColor: {
-				r: 1
-				g: 1
-				b: 1
-				a: 1
-			}
-			tint: null
-			tintName: null
-			name: icon_leadership_small_blue
-			tiled: false
-			minWidth: -1
-			minHeight: -1
-			customized: false
-			tenPatchData: null
-			tvgData: null
-			type: TEXTURE
-			hidden: false
-		}
-		{
-			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/topbar/icon_leadership_small_green.png
-			bgColor: {
-				r: 1
-				g: 1
-				b: 1
-				a: 1
-			}
-			tint: null
-			tintName: null
-			name: icon_leadership_small_green
-			tiled: false
-			minWidth: -1
-			minHeight: -1
-			customized: false
-			tenPatchData: null
-			tvgData: null
-			type: TEXTURE
-			hidden: false
-		}
-		{
-			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/topbar/icon_leadership_small_red.png
-			bgColor: {
-				r: 1
-				g: 1
-				b: 1
-				a: 1
-			}
-			tint: null
-			tintName: null
-			name: icon_leadership_small_red
-			tiled: false
-			minWidth: -1
-			minHeight: -1
-			customized: false
-			tenPatchData: null
-			tvgData: null
-			type: TEXTURE
-			hidden: false
-		}
-		{
-			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/topbar/icon_manpower_army_small_blue.png
-			bgColor: {
-				r: 1
-				g: 1
-				b: 1
-				a: 1
-			}
-			tint: null
-			tintName: null
-			name: icon_manpower_army_small_blue
-			tiled: false
-			minWidth: -1
-			minHeight: -1
-			customized: false
-			tenPatchData: null
-			tvgData: null
-			type: TEXTURE
-			hidden: false
-		}
-		{
-			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/topbar/icon_manpower_army_small_green.png
-			bgColor: {
-				r: 1
-				g: 1
-				b: 1
-				a: 1
-			}
-			tint: null
-			tintName: null
-			name: icon_manpower_army_small_green
-			tiled: false
-			minWidth: -1
-			minHeight: -1
-			customized: false
-			tenPatchData: null
-			tvgData: null
-			type: TEXTURE
-			hidden: false
-		}
-		{
-			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/topbar/icon_manpower_army_small_red.png
-			bgColor: {
-				r: 1
-				g: 1
-				b: 1
-				a: 1
-			}
-			tint: null
-			tintName: null
-			name: icon_manpower_army_small_red
-			tiled: false
-			minWidth: -1
-			minHeight: -1
-			customized: false
-			tenPatchData: null
-			tvgData: null
-			type: TEXTURE
-			hidden: false
-		}
-		{
-			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/topbar/icon_manpower_small_blue.png
-			bgColor: {
-				r: 1
-				g: 1
-				b: 1
-				a: 1
-			}
-			tint: null
-			tintName: null
-			name: icon_manpower_small_blue
-			tiled: false
-			minWidth: -1
-			minHeight: -1
-			customized: false
-			tenPatchData: null
-			tvgData: null
-			type: TEXTURE
-			hidden: false
-		}
-		{
-			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/topbar/icon_manpower_small_green.png
-			bgColor: {
-				r: 1
-				g: 1
-				b: 1
-				a: 1
-			}
-			tint: null
-			tintName: null
-			name: icon_manpower_small_green
-			tiled: false
-			minWidth: -1
-			minHeight: -1
-			customized: false
-			tenPatchData: null
-			tvgData: null
-			type: TEXTURE
-			hidden: false
-		}
-		{
-			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/topbar/icon_manpower_small_red.png
-			bgColor: {
-				r: 1
-				g: 1
-				b: 1
-				a: 1
-			}
-			tint: null
-			tintName: null
-			name: icon_manpower_small_red
-			tiled: false
-			minWidth: -1
-			minHeight: -1
-			customized: false
-			tenPatchData: null
-			tvgData: null
-			type: TEXTURE
-			hidden: false
-		}
-		{
-			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/topbar/icon_money_small_blue.png
-			bgColor: {
-				r: 1
-				g: 1
-				b: 1
-				a: 1
-			}
-			tint: null
-			tintName: null
-			name: icon_money_small_blue
-			tiled: false
-			minWidth: -1
-			minHeight: -1
-			customized: false
-			tenPatchData: null
-			tvgData: null
-			type: TEXTURE
-			hidden: false
-		}
-		{
-			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/topbar/icon_money_small_green.png
-			bgColor: {
-				r: 1
-				g: 1
-				b: 1
-				a: 1
-			}
-			tint: null
-			tintName: null
-			name: icon_money_small_green
-			tiled: false
-			minWidth: -1
-			minHeight: -1
-			customized: false
-			tenPatchData: null
-			tvgData: null
-			type: TEXTURE
-			hidden: false
-		}
-		{
-			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/topbar/icon_money_small_red.png
-			bgColor: {
-				r: 1
-				g: 1
-				b: 1
-				a: 1
-			}
-			tint: null
-			tintName: null
-			name: icon_money_small_red
-			tiled: false
-			minWidth: -1
-			minHeight: -1
-			customized: false
-			tenPatchData: null
-			tvgData: null
-			type: TEXTURE
-			hidden: false
-		}
-		{
-			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/topbar/icon_nuke.png
-			bgColor: {
-				r: 1
-				g: 1
-				b: 1
-				a: 1
-			}
-			tint: null
-			tintName: null
-			name: icon_nuke
-			tiled: false
-			minWidth: -1
-			minHeight: -1
-			customized: false
-			tenPatchData: null
-			tvgData: null
-			type: TEXTURE
-			hidden: false
-		}
-		{
-			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/topbar/icon_oil.png
-			bgColor: {
-				r: 1
-				g: 1
-				b: 1
-				a: 1
-			}
-			tint: null
-			tintName: null
-			name: icon_oil
-			tiled: false
-			minWidth: -1
-			minHeight: -1
-			customized: false
-			tenPatchData: null
-			tvgData: null
-			type: TEXTURE
-			hidden: false
-		}
-		{
-			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/topbar/icon_prestige_small_blue.png
-			bgColor: {
-				r: 1
-				g: 1
-				b: 1
-				a: 1
-			}
-			tint: null
-			tintName: null
-			name: icon_prestige_small_blue
-			tiled: false
-			minWidth: -1
-			minHeight: -1
-			customized: false
-			tenPatchData: null
-			tvgData: null
-			type: TEXTURE
-			hidden: false
-		}
-		{
-			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/topbar/icon_prestige_small_green.png
-			bgColor: {
-				r: 1
-				g: 1
-				b: 1
-				a: 1
-			}
-			tint: null
-			tintName: null
-			name: icon_prestige_small_green
-			tiled: false
-			minWidth: -1
-			minHeight: -1
-			customized: false
-			tenPatchData: null
-			tvgData: null
-			type: TEXTURE
-			hidden: false
-		}
-		{
-			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/topbar/icon_prestige_small_red.png
-			bgColor: {
-				r: 1
-				g: 1
-				b: 1
-				a: 1
-			}
-			tint: null
-			tintName: null
-			name: icon_prestige_small_red
-			tiled: false
-			minWidth: -1
-			minHeight: -1
-			customized: false
-			tenPatchData: null
-			tvgData: null
-			type: TEXTURE
-			hidden: false
-		}
-		{
-			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/topbar/icon_satellite_blue.png
-			bgColor: {
-				r: 1
-				g: 1
-				b: 1
-				a: 1
-			}
-			tint: null
-			tintName: null
-			name: icon_satellite_blue
-			tiled: false
-			minWidth: -1
-			minHeight: -1
-			customized: false
-			tenPatchData: null
-			tvgData: null
-			type: TEXTURE
-			hidden: false
-		}
-		{
-			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/topbar/icon_satellite_green.png
-			bgColor: {
-				r: 1
-				g: 1
-				b: 1
-				a: 1
-			}
-			tint: null
-			tintName: null
-			name: icon_satellite_green
-			tiled: false
-			minWidth: -1
-			minHeight: -1
-			customized: false
-			tenPatchData: null
-			tvgData: null
-			type: TEXTURE
-			hidden: false
-		}
-		{
-			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/topbar/icon_satellite_red.png
-			bgColor: {
-				r: 1
-				g: 1
-				b: 1
-				a: 1
-			}
-			tint: null
-			tintName: null
-			name: icon_satellite_red
-			tiled: false
-			minWidth: -1
-			minHeight: -1
-			customized: false
-			tenPatchData: null
-			tvgData: null
-			type: TEXTURE
-			hidden: false
-		}
-		{
-			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/topbar/icon_spy_blue.png
-			bgColor: {
-				r: 1
-				g: 1
-				b: 1
-				a: 1
-			}
-			tint: null
-			tintName: null
-			name: icon_spy_blue
-			tiled: false
-			minWidth: -1
-			minHeight: -1
-			customized: false
-			tenPatchData: null
-			tvgData: null
-			type: TEXTURE
-			hidden: false
-		}
-		{
-			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/topbar/icon_spy_green.png
-			bgColor: {
-				r: 1
-				g: 1
-				b: 1
-				a: 1
-			}
-			tint: null
-			tintName: null
-			name: icon_spy_green
-			tiled: false
-			minWidth: -1
-			minHeight: -1
-			customized: false
-			tenPatchData: null
-			tvgData: null
-			type: TEXTURE
-			hidden: false
-		}
-		{
-			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/topbar/icon_spy_red.png
-			bgColor: {
-				r: 1
-				g: 1
-				b: 1
-				a: 1
-			}
-			tint: null
-			tintName: null
-			name: icon_spy_red
-			tiled: false
-			minWidth: -1
-			minHeight: -1
-			customized: false
-			tenPatchData: null
-			tvgData: null
-			type: TEXTURE
-			hidden: false
-		}
-		{
-			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/topbar/icon_supplies_small_blue.png
-			bgColor: {
-				r: 1
-				g: 1
-				b: 1
-				a: 1
-			}
-			tint: null
-			tintName: null
-			name: icon_supplies_small_blue
-			tiled: false
-			minWidth: -1
-			minHeight: -1
-			customized: false
-			tenPatchData: null
-			tvgData: null
-			type: TEXTURE
-			hidden: false
-		}
-		{
-			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/topbar/icon_supplies_small_green.png
-			bgColor: {
-				r: 1
-				g: 1
-				b: 1
-				a: 1
-			}
-			tint: null
-			tintName: null
-			name: icon_supplies_small_green
-			tiled: false
-			minWidth: -1
-			minHeight: -1
-			customized: false
-			tenPatchData: null
-			tvgData: null
-			type: TEXTURE
-			hidden: false
-		}
-		{
-			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/topbar/icon_supplies_small_red.png
-			bgColor: {
-				r: 1
-				g: 1
-				b: 1
-				a: 1
-			}
-			tint: null
-			tintName: null
-			name: icon_supplies_small_red
-			tiled: false
-			minWidth: -1
-			minHeight: -1
-			customized: false
-			tenPatchData: null
-			tvgData: null
-			type: TEXTURE
-			hidden: false
-		}
-		{
-			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/topbar/icon_unity_small_blue.png
-			bgColor: {
-				r: 1
-				g: 1
-				b: 1
-				a: 1
-			}
-			tint: null
-			tintName: null
-			name: icon_unity_small_blue
-			tiled: false
-			minWidth: -1
-			minHeight: -1
-			customized: false
-			tenPatchData: null
-			tvgData: null
-			type: TEXTURE
-			hidden: false
-		}
-		{
-			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/topbar/icon_unity_small_green.png
-			bgColor: {
-				r: 1
-				g: 1
-				b: 1
-				a: 1
-			}
-			tint: null
-			tintName: null
-			name: icon_unity_small_green
-			tiled: false
-			minWidth: -1
-			minHeight: -1
-			customized: false
-			tenPatchData: null
-			tvgData: null
-			type: TEXTURE
-			hidden: false
-		}
-		{
-			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/topbar/icon_unity_small_red.png
-			bgColor: {
-				r: 1
-				g: 1
-				b: 1
-				a: 1
-			}
-			tint: null
-			tintName: null
-			name: icon_unity_small_red
-			tiled: false
-			minWidth: -1
-			minHeight: -1
-			customized: false
-			tenPatchData: null
-			tvgData: null
-			type: TEXTURE
-			hidden: false
-		}
-		{
-			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/topbar/icon_uranium.png
-			bgColor: {
-				r: 1
-				g: 1
-				b: 1
-				a: 1
-			}
-			tint: null
-			tintName: null
-			name: icon_uranium
-			tiled: false
-			minWidth: -1
-			minHeight: -1
-			customized: false
-			tenPatchData: null
-			tvgData: null
-			type: TEXTURE
-			hidden: false
-		}
-		{
-			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/topbar/icon_uranium_small_blue.png
-			bgColor: {
-				r: 1
-				g: 1
-				b: 1
-				a: 1
-			}
-			tint: null
-			tintName: null
-			name: icon_uranium_small_blue
-			tiled: false
-			minWidth: -1
-			minHeight: -1
-			customized: false
-			tenPatchData: null
-			tvgData: null
-			type: TEXTURE
-			hidden: false
-		}
-		{
-			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/topbar/icon_uranium_small_green.png
-			bgColor: {
-				r: 1
-				g: 1
-				b: 1
-				a: 1
-			}
-			tint: null
-			tintName: null
-			name: icon_uranium_small_green
-			tiled: false
-			minWidth: -1
-			minHeight: -1
-			customized: false
-			tenPatchData: null
-			tvgData: null
-			type: TEXTURE
-			hidden: false
-		}
-		{
-			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/topbar/icon_uranium_small_red.png
-			bgColor: {
-				r: 1
-				g: 1
-				b: 1
-				a: 1
-			}
-			tint: null
-			tintName: null
-			name: icon_uranium_small_red
-			tiled: false
-			minWidth: -1
-			minHeight: -1
-			customized: false
-			tenPatchData: null
-			tvgData: null
-			type: TEXTURE
-			hidden: false
-		}
-		{
-			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/topbar/menu_topbar.png
-			bgColor: {
-				r: 1
-				g: 1
-				b: 1
-				a: 1
-			}
-			tint: null
-			tintName: null
-			name: menu_topbar
-			tiled: false
-			minWidth: -1
-			minHeight: -1
-			customized: false
-			tenPatchData: null
-			tvgData: null
-			type: TEXTURE
-			hidden: false
-		}
-		{
-			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/topbar/minus_speed.png
-			bgColor: {
-				r: 1
-				g: 1
-				b: 1
-				a: 1
-			}
-			tint: null
-			tintName: null
-			name: minus_speed
-			tiled: false
-			minWidth: -1
-			minHeight: -1
-			customized: false
-			tenPatchData: null
-			tvgData: null
-			type: TEXTURE
-			hidden: false
-		}
-		{
-			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/topbar/minus_speed_down.png
-			bgColor: {
-				r: 1
-				g: 1
-				b: 1
-				a: 1
-			}
-			tint: null
-			tintName: null
-			name: minus_speed_down
-			tiled: false
-			minWidth: -1
-			minHeight: -1
-			customized: false
-			tenPatchData: null
-			tvgData: null
-			type: TEXTURE
-			hidden: false
-		}
-		{
-			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/topbar/naked_topbar.png
-			bgColor: {
-				r: 1
-				g: 1
-				b: 1
-				a: 1
-			}
-			tint: null
-			tintName: null
-			name: naked_topbar
-			tiled: false
-			minWidth: -1
-			minHeight: -1
-			customized: false
-			tenPatchData: null
-			tvgData: null
-			type: TEXTURE
-			hidden: false
-		}
-		{
-			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/topbar/play_pause.png
-			bgColor: {
-				r: 1
-				g: 1
-				b: 1
-				a: 1
-			}
-			tint: null
-			tintName: null
-			name: play_pause
-			tiled: false
-			minWidth: -1
-			minHeight: -1
-			customized: false
-			tenPatchData: null
-			tvgData: null
-			type: TEXTURE
-			hidden: false
-		}
-		{
-			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/topbar/plus_speed.png
-			bgColor: {
-				r: 1
-				g: 1
-				b: 1
-				a: 1
-			}
-			tint: null
-			tintName: null
-			name: plus_speed
-			tiled: false
-			minWidth: -1
-			minHeight: -1
-			customized: false
-			tenPatchData: null
-			tvgData: null
-			type: TEXTURE
-			hidden: false
-		}
-		{
-			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/topbar/plus_speed_down.png
-			bgColor: {
-				r: 1
-				g: 1
-				b: 1
-				a: 1
-			}
-			tint: null
-			tintName: null
-			name: plus_speed_down
-			tiled: false
-			minWidth: -1
-			minHeight: -1
-			customized: false
-			tenPatchData: null
-			tvgData: null
-			type: TEXTURE
-			hidden: false
-		}
-		{
-			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/topbar/resume_pause_state1.png
-			bgColor: {
-				r: 1
-				g: 1
-				b: 1
-				a: 1
-			}
-			tint: null
-			tintName: null
-			name: resume_pause_state1
-			tiled: false
-			minWidth: -1
-			minHeight: -1
-			customized: false
-			tenPatchData: null
-			tvgData: null
-			type: TEXTURE
-			hidden: false
-		}
-		{
-			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/topbar/resume_pause_state2.png
-			bgColor: {
-				r: 1
-				g: 1
-				b: 1
-				a: 1
-			}
-			tint: null
-			tintName: null
-			name: resume_pause_state2
-			tiled: false
-			minWidth: -1
-			minHeight: -1
-			customized: false
-			tenPatchData: null
-			tvgData: null
-			type: TEXTURE
-			hidden: false
-		}
-		{
-			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/topbar/small_shield_overlay.png
-			bgColor: {
-				r: 1
-				g: 1
-				b: 1
-				a: 1
-			}
-			tint: null
-			tintName: null
-			name: small_shield_overlay
-			tiled: false
-			minWidth: -1
-			minHeight: -1
-			customized: false
-			tenPatchData: null
-			tvgData: null
-			type: TEXTURE
-			hidden: false
-		}
-		{
-			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/topbar/stats_topbar.png
-			bgColor: {
-				r: 1
-				g: 1
-				b: 1
-				a: 1
-			}
-			tint: null
-			tintName: null
-			name: stats_topbar
-			tiled: false
-			minWidth: -1
-			minHeight: -1
-			customized: false
-			tenPatchData: null
-			tvgData: null
-			type: TEXTURE
-			hidden: false
-		}
-		{
-			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/topbar/steel_part.png
-			bgColor: {
-				r: 1
-				g: 1
-				b: 1
-				a: 1
-			}
-			tint: null
-			tintName: null
-			name: steel_part
-			tiled: false
-			minWidth: -1
-			minHeight: -1
-			customized: false
-			tenPatchData: null
-			tvgData: null
-			type: TEXTURE
-			hidden: false
-		}
-		{
-			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/topbar/topbar.png
-			bgColor: {
-				r: 1
-				g: 1
-				b: 1
-				a: 1
-			}
-			tint: null
-			tintName: null
-			name: topbar
-			tiled: false
-			minWidth: -1
-			minHeight: -1
-			customized: false
-			tenPatchData: null
-			tvgData: null
-			type: TEXTURE
-			hidden: false
-		}
-		{
-			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/topbar/topbar_prestige.png
-			bgColor: {
-				r: 1
-				g: 1
-				b: 1
-				a: 1
-			}
-			tint: null
-			tintName: null
-			name: topbar_prestige
-			tiled: false
-			minWidth: -1
-			minHeight: -1
-			customized: false
-			tenPatchData: null
-			tvgData: null
-			type: TEXTURE
-			hidden: false
-		}
-		{
-			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/topbar/topbar_thick.png
-			bgColor: {
-				r: 1
-				g: 1
-				b: 1
-				a: 1
-			}
-			tint: null
-			tintName: null
-			name: topbar_thick
+			name: frontend_mainmenu_bg
 			tiled: false
 			minWidth: -1
 			minHeight: -1
@@ -1265,7 +165,7 @@ atlasData: {
 	]
 	fontDrawables: [
 		{
-			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/fonts/sitka_16.png
+			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/fonts/impact_20_blue.png
 			bgColor: {
 				r: 1
 				g: 1
@@ -1274,7 +174,7 @@ atlasData: {
 			}
 			tint: null
 			tintName: null
-			name: sitka_16
+			name: impact_20_blue
 			tiled: false
 			minWidth: -1
 			minHeight: -1
@@ -1285,7 +185,7 @@ atlasData: {
 			hidden: false
 		}
 		{
-			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/fonts/sitka_18_blue.png
+			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/fonts/impact_20_red.png
 			bgColor: {
 				r: 1
 				g: 1
@@ -1294,107 +194,7 @@ atlasData: {
 			}
 			tint: null
 			tintName: null
-			name: sikta_18_blue
-			tiled: false
-			minWidth: -1
-			minHeight: -1
-			customized: false
-			tenPatchData: null
-			tvgData: null
-			type: FONT
-			hidden: false
-		}
-		{
-			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/fonts/sitka_18_green.png
-			bgColor: {
-				r: 1
-				g: 1
-				b: 1
-				a: 1
-			}
-			tint: null
-			tintName: null
-			name: sikta_18_green
-			tiled: false
-			minWidth: -1
-			minHeight: -1
-			customized: false
-			tenPatchData: null
-			tvgData: null
-			type: FONT
-			hidden: false
-		}
-		{
-			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/fonts/sitka_18_red.png
-			bgColor: {
-				r: 1
-				g: 1
-				b: 1
-				a: 1
-			}
-			tint: null
-			tintName: null
-			name: sikta_18_red
-			tiled: false
-			minWidth: -1
-			minHeight: -1
-			customized: false
-			tenPatchData: null
-			tvgData: null
-			type: FONT
-			hidden: false
-		}
-		{
-			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/fonts/sitka_18_blue.png
-			bgColor: {
-				r: 1
-				g: 1
-				b: 1
-				a: 1
-			}
-			tint: null
-			tintName: null
-			name: sitka_18_blue
-			tiled: false
-			minWidth: -1
-			minHeight: -1
-			customized: false
-			tenPatchData: null
-			tvgData: null
-			type: FONT
-			hidden: false
-		}
-		{
-			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/fonts/sitka_18_green.png
-			bgColor: {
-				r: 1
-				g: 1
-				b: 1
-				a: 1
-			}
-			tint: null
-			tintName: null
-			name: sitka_18_green
-			tiled: false
-			minWidth: -1
-			minHeight: -1
-			customized: false
-			tenPatchData: null
-			tvgData: null
-			type: FONT
-			hidden: false
-		}
-		{
-			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/fonts/sitka_18_red.png
-			bgColor: {
-				r: 1
-				g: 1
-				b: 1
-				a: 1
-			}
-			tint: null
-			tintName: null
-			name: sitka_18_red
+			name: impact_20_red
 			tiled: false
 			minWidth: -1
 			minHeight: -1
@@ -1411,35 +211,19 @@ jsonData: {
 	fonts: [
 		{
 			class: com.ray3k.skincomposer.data.FontData
-			name: sitka_16
+			name: impact_20_blue
 			flip: false
 			markupEnabled: false
 			scaling: -1
-			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/fonts/sitka_16.fnt
+			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/fonts/impact_20_blue.fnt
 		}
 		{
 			class: com.ray3k.skincomposer.data.FontData
-			name: sitka_18_blue
+			name: impact_20_red
 			flip: false
 			markupEnabled: false
 			scaling: -1
-			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/fonts/sitka_18_blue.fnt
-		}
-		{
-			class: com.ray3k.skincomposer.data.FontData
-			name: sitka_18_green
-			flip: false
-			markupEnabled: false
-			scaling: -1
-			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/fonts/sitka_18_green.fnt
-		}
-		{
-			class: com.ray3k.skincomposer.data.FontData
-			name: sitka_18_red
-			flip: false
-			markupEnabled: false
-			scaling: -1
-			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/fonts/sitka_18_red.fnt
+			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/fonts/impact_20_red.fnt
 		}
 	]
 	freeTypeFonts: []
@@ -1454,13 +238,13 @@ jsonData: {
 						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
 						name: checkboxOn
 						optional: false
-						value: resume_pause_state2
+						value: null
 					}
 					checkboxOff: {
 						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
 						name: checkboxOff
 						optional: false
-						value: resume_pause_state1
+						value: null
 					}
 					checkboxOnOver: {
 						type: com.badlogic.gdx.scenes.scene2d.utils.Drawable
@@ -1490,7 +274,7 @@ jsonData: {
 						type: com.badlogic.gdx.graphics.g2d.BitmapFont
 						name: font
 						optional: false
-						value: sitka_16
+						value: null
 					}
 					fontColor: {
 						type: com.badlogic.gdx.graphics.Color
@@ -3032,11 +1816,11 @@ jsonData: {
 preferences: {
 	id: {
 		class: java.lang.Integer
-		value: 707077888
+		value: 270344640
 	}
 	last-import-export-path: {
 		class: java.lang.String
-		value: C:/Users/erwan/Desktop/DEV/risk1949/assets/ui/topbar/skin/topbarskin.json
+		value: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/mainmenu/skin/mainmenuskin.json
 	}
 	resources-relative: {
 		class: java.lang.Boolean
@@ -3047,7 +1831,7 @@ preferences: {
 		value: 30
 	}
 }
-saveFile: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/topbar/skin/composer/topbar.scmp
+saveFile: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/mainmenu/skin/composer/mainmenu.scmp
 version: 56
 sceneComposer: null
 }

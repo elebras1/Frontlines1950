@@ -19,70 +19,53 @@ import com.badlogic.gdx.utils.viewport.ScreenViewport;
 
 
 public class MainMenuScreen implements Screen {
-    private Stage stage;
-    private Skin skin = new Skin();
-    private Game game;
-    private Texture backgroundTexture;
-    private Texture menuTexture;
+    private final Stage stage;
+    private final Skin skin;
 
     public MainMenuScreen(Game game) {
-        this.game = game;
         this.stage = new Stage(new ScreenViewport());
         Gdx.input.setInputProcessor(this.stage);
-
-        backgroundTexture = new Texture("ui/mainmenu/background.png");
-        Image background = new Image(backgroundTexture);
-        background.setSize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        stage.addActor(background);
-
-        menuTexture = new Texture("ui/mainmenu/main_menu.png");
-        Image menuImage = new Image(menuTexture);
-        menuImage.setPosition((float) Gdx.graphics.getWidth() / 2 - menuImage.getWidth() / 2, (float) Gdx.graphics.getHeight() / 2 - menuImage.getHeight() / 2);
-        stage.addActor(menuImage);
-
-        TextButton.TextButtonStyle textButtonStyle = createButtonStyle();
-        skin.add("default", textButtonStyle);
-
-        TextButton startButton = createButton("Start Game");
-        startButton.addListener(new ClickListener() {
+        this.skin = new Skin(Gdx.files.internal("ui/mainmenu/skin/mainmenuskin.json"));
+        Table rootTable = new Table();
+        rootTable.setFillParent(true);
+        rootTable.setBackground(this.skin.getDrawable("frontend_main_bg"));
+        Table menuTable = new Table();
+        menuTable.setBackground(this.skin.getDrawable("frontend_mainmenu_bg"));
+        menuTable.padBottom(35);
+        TextButton playButton = new TextButton("Play", this.skin, "frontend_button_big");
+        playButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 game.setScreen(new LoadScreen(game));
             }
         });
-
-        TextButton exitButton = createButton("Exit Game");
+        menuTable.add(playButton).expandY().bottom().spaceBottom(83);
+        menuTable.row();
+        TextButton optionsButton = new TextButton("Options", this.skin, "frontend_button_small");
+        menuTable.add(optionsButton).spaceBottom(10);
+        menuTable.row();
+        TextButton creditButton = new TextButton("Credit", this.skin, "frontend_button_small");
+        creditButton.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                game.setScreen(new CreditScreen(game));
+            }
+        });
+        menuTable.add(creditButton).spaceBottom(10);
+        menuTable.row();
+        TextButton helpButton = new TextButton("Help", this.skin, "frontend_button_small");
+        menuTable.add(helpButton).spaceBottom(58);
+        menuTable.row();
+        TextButton exitButton = new TextButton("Exit", this.skin, "frontend_button_exit");
         exitButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 Gdx.app.exit();
             }
         });
-
-        // Add buttons to a table
-        Table table = createButtonTable(startButton, exitButton);
-        this.stage.addActor(table);
-    }
-
-    private TextButton.TextButtonStyle createButtonStyle() {
-        TextButton.TextButtonStyle textButtonStyle = new TextButton.TextButtonStyle();
-        textButtonStyle.font = new BitmapFont();
-        textButtonStyle.up = new TextureRegionDrawable(new TextureRegion(new Texture("ui/mainmenu/button_big.png")));
-        textButtonStyle.down = new TextureRegionDrawable(new TextureRegion(new Texture("ui/mainmenu/button_exit.png")));
-        return textButtonStyle;
-    }
-
-    private TextButton createButton(String text) {
-        return new TextButton(text, skin);
-    }
-
-    private Table createButtonTable(TextButton startButton, TextButton exitButton) {
-        Table table = new Table();
-        table.setFillParent(true);
-        table.add(startButton).padTop(187);
-        table.row();
-        table.add(exitButton).padTop(177);
-        return table;
+        menuTable.add(exitButton);
+        rootTable.add(menuTable).expand().center();
+        this.stage.addActor(rootTable);
     }
 
     @Override
@@ -91,22 +74,16 @@ public class MainMenuScreen implements Screen {
 
     @Override
     public void render(float delta) {
-        Gdx.gl.glClearColor(0, 0, 0, 1);
+        Gdx.gl.glClearColor(1, 1, 1, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-        this.stage.act(Math.min(Gdx.graphics.getDeltaTime(), 1 / 30f));
+        this.stage.act();
         this.stage.draw();
     }
 
     @Override
     public void resize(int width, int height) {
         this.stage.getViewport().update(width, height, true);
-
-        Image background = (Image) stage.getActors().first();
-        background.setSize(width, height);
-
-        Image menuImage = (Image) stage.getActors().get(1);
-        menuImage.setPosition((float) width / 2 - menuImage.getWidth() / 2, (float) height / 2 - menuImage.getHeight() / 2);
     }
 
     @Override
@@ -125,8 +102,6 @@ public class MainMenuScreen implements Screen {
     public void dispose() {
         stage.dispose();
         skin.dispose();
-        backgroundTexture.dispose();
-        menuTexture.dispose();
     }
 }
 

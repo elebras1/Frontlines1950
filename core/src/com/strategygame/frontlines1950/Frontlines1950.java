@@ -15,9 +15,8 @@ public class Frontlines1950 extends Game {
     public void create() {
         this.changeCursor();
 
-        //this.screen = new LoadScreen(this);
         this.screen = new MainMenuScreen(this);
-        setScreen(screen);
+        this.setScreen(this.screen);
     }
 
     public void changeCursor() {

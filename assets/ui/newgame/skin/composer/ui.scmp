@@ -3,7 +3,7 @@ atlasData: {
 	atlasCurrent: true
 	drawables: [
 		{
-			file: C:/Users/erwan/Desktop/DEV/risk1949/assets/ui/newgame/frontend_play_button.png
+			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/newgame/frontend_play_button.png
 			bgColor: {
 				r: 1
 				g: 1
@@ -23,7 +23,7 @@ atlasData: {
 			hidden: false
 		}
 		{
-			file: C:/Users/erwan/Desktop/DEV/risk1949/assets/ui/newgame/frontend_play_button_down.png
+			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/newgame/frontend_play_button_down.png
 			bgColor: {
 				r: 1
 				g: 1
@@ -43,7 +43,7 @@ atlasData: {
 			hidden: false
 		}
 		{
-			file: C:/Users/erwan/Desktop/DEV/risk1949/assets/ui/newgame/frontend_selected_bg.png
+			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/newgame/frontend_selected_bg.png
 			bgColor: {
 				r: 1
 				g: 1
@@ -63,7 +63,7 @@ atlasData: {
 			hidden: false
 		}
 		{
-			file: C:/Users/erwan/Desktop/DEV/risk1949/assets/ui/newgame/frontend_scenario_entry.png
+			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/newgame/frontend_scenario_entry.png
 			bgColor: {
 				r: 1
 				g: 1
@@ -83,7 +83,7 @@ atlasData: {
 			hidden: false
 		}
 		{
-			file: C:/Users/erwan/Desktop/DEV/risk1949/assets/ui/newgame/frontend_tab_bg.png
+			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/newgame/frontend_tab_bg.png
 			bgColor: {
 				r: 1
 				g: 1
@@ -103,7 +103,7 @@ atlasData: {
 			hidden: false
 		}
 		{
-			file: C:/Users/erwan/Desktop/DEV/risk1949/assets/ui/newgame/frontend_tab_button.png
+			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/newgame/frontend_tab_button.png
 			bgColor: {
 				r: 1
 				g: 1
@@ -123,7 +123,7 @@ atlasData: {
 			hidden: false
 		}
 		{
-			file: C:/Users/erwan/Desktop/DEV/risk1949/assets/ui/newgame/frontend_selected_scenario.png
+			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/newgame/frontend_selected_scenario.png
 			bgColor: {
 				r: 1
 				g: 1
@@ -145,7 +145,7 @@ atlasData: {
 	]
 	fontDrawables: [
 		{
-			file: C:/Users/erwan/Desktop/DEV/risk1949/assets/fonts/impact_20_blue.png
+			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/fonts/impact_20_blue.png
 			bgColor: {
 				r: 1
 				g: 1
@@ -165,7 +165,7 @@ atlasData: {
 			hidden: false
 		}
 		{
-			file: C:/Users/erwan/Desktop/DEV/risk1949/assets/fonts/sitka_16_white.png
+			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/fonts/sitka_16_white.png
 			bgColor: {
 				r: 1
 				g: 1
@@ -185,7 +185,7 @@ atlasData: {
 			hidden: false
 		}
 		{
-			file: C:/Users/erwan/Desktop/DEV/risk1949/assets/fonts/sitka_16_white.png
+			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/fonts/sitka_16_white.png
 			bgColor: {
 				r: 1
 				g: 1
@@ -226,7 +226,7 @@ jsonData: {
 			flip: false
 			markupEnabled: false
 			scaling: -1
-			file: C:/Users/erwan/Desktop/DEV/risk1949/assets/fonts/impact_20_blue.fnt
+			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/fonts/impact_20_blue.fnt
 		}
 		{
 			class: com.ray3k.skincomposer.data.FontData
@@ -234,7 +234,7 @@ jsonData: {
 			flip: false
 			markupEnabled: false
 			scaling: -1
-			file: C:/Users/erwan/Desktop/DEV/risk1949/assets/fonts/sitka_16_white.fnt
+			file: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/fonts/sitka_16_white.fnt
 		}
 	]
 	freeTypeFonts: []
@@ -1849,7 +1849,7 @@ preferences: {
 		value: 30
 	}
 }
-saveFile: C:/Users/erwan/Desktop/DEV/risk1949/assets/ui/newgame/skin/composer/ui.scmp
+saveFile: C:/Users/erwan/Desktop/DEV/frontlines1950/assets/ui/newgame/skin/composer/ui.scmp
 version: 56
 sceneComposer: {
 	children: []
