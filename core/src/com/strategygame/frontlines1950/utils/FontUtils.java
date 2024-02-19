@@ -6,8 +6,17 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 
 public class FontUtils {
+    /**
+     * The default size for fonts
+     */
     static int defaultSize = 12;
 
+    /**
+     * Create a new font with the specified size
+     *
+     * @param fontFile the font file
+     * @return the font
+     */
     public static BitmapFont createFont(String fontFile, int size) {
         FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("fonts/eurostile.ttf"));
         FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
@@ -18,6 +27,11 @@ public class FontUtils {
         return font;
     }
 
+    /**
+     * Create a new font with the default size
+     * @param fontFile
+     * @return
+     */
     public static BitmapFont createFont(String fontFile) {
         FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal(fontFile));
         FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();

@@ -1,4 +1,12 @@
-Afficher le nombre de regiment de chaque Etat sur la carte
+Commencer la javadoc pour les class et méthodes semblent etre définitives
+
+Afficher les regiments par Etat avec un systeme d'empilement de brigade (1 brigrade = 1 image)
+
+Selon la taille du zoom afficher les frontiere d'un pays et son nom ou les frontieres des etats avec les régiments
+
+Ajouter l'ui dans GameScreen qui d'attaquer ou soutenir un State avec des régiments
+    -> selon l'action choisi le cuseur changera
+    -> selection de l'etat puis selection des regiments puis selection de l'etat a attaquer ou soutenir
 
 Gestion de l'affichage des noms et regiments selon le zoom de la camera du jeu
 
