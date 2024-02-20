@@ -1,5 +1,7 @@
 package com.strategygame.frontlines1950;
 
+import com.strategygame.frontlines1950.map.Country;
+
 public class Player {
     private final Country country;
 

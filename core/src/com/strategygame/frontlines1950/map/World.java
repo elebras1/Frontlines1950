@@ -4,6 +4,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.strategygame.frontlines1950.utils.DataManager;
 import com.strategygame.frontlines1950.utils.Triple;
 
 import java.util.*;

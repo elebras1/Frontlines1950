@@ -8,7 +8,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import java.util.*;
 
 import static com.strategygame.frontlines1950.Frontlines1950.WORLD_WIDTH;
-import static com.strategygame.frontlines1950.utils.PixmapUtils.flipVertically;
+import static com.strategygame.frontlines1950.utils.PixmapOperations.flipVertically;
 
 public class State implements GeoLocation {
     private final int id;
