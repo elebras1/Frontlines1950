@@ -1,9 +1,11 @@
-package com.strategygame.frontlines1950;
+package com.strategygame.frontlines1950.screens;
 
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.math.Vector3;
+import com.strategygame.frontlines1950.map.Country;
+import com.strategygame.frontlines1950.map.World;
 
 public class NewGameInputHandler<T extends Screen> extends InputHandler<T> {
     public NewGameInputHandler(OrthographicCamera cam, World world, T screen) {

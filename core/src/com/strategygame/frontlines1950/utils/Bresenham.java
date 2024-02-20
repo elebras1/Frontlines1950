@@ -1,6 +1,18 @@
-package com.strategygame.frontlines1950;
+package com.strategygame.frontlines1950.utils;
+
+import com.strategygame.frontlines1950.map.Country;
+import com.strategygame.frontlines1950.map.Province;
 
 public class Bresenham {
+    /**
+     * Checks if a line between two pixels is inside a country
+     * It used the Bresenham's line algorithm
+     *
+     * @param pixelA  The first pixel
+     * @param pixelB  The second pixel
+     * @param country The country to check
+     * @return True if the line is inside the country, false otherwise
+     */
     public static boolean isLineInCountry(Province.Pixel pixelA, Province.Pixel pixelB, Country country) {
         int x0 = pixelA.getX();
         int y0 = pixelA.getY();

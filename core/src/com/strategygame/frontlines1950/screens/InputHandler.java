@@ -1,4 +1,4 @@
-package com.strategygame.frontlines1950;
+package com.strategygame.frontlines1950.screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
@@ -7,6 +7,7 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector3;
+import com.strategygame.frontlines1950.map.World;
 
 import static com.strategygame.frontlines1950.Frontlines1950.WORLD_WIDTH;
 

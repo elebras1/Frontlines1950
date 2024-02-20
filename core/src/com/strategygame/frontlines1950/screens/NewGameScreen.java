@@ -1,4 +1,4 @@
-package com.strategygame.frontlines1950;
+package com.strategygame.frontlines1950.screens;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
@@ -14,6 +14,8 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
+import com.strategygame.frontlines1950.map.Country;
+import com.strategygame.frontlines1950.map.World;
 
 import static com.strategygame.frontlines1950.Frontlines1950.WORLD_HEIGHT;
 import static com.strategygame.frontlines1950.Frontlines1950.WORLD_WIDTH;

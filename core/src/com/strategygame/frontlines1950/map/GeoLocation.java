@@ -1,4 +1,4 @@
-package com.strategygame.frontlines1950;
+package com.strategygame.frontlines1950.map;
 
 public interface GeoLocation {
     void setOrigin();

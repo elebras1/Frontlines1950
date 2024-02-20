@@ -1,4 +1,4 @@
-package com.strategygame.frontlines1950;
+package com.strategygame.frontlines1950.player;
 
 import java.util.ArrayList;
 import java.util.List;

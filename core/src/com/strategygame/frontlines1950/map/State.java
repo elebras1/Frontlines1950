@@ -1,4 +1,4 @@
-package com.strategygame.frontlines1950;
+package com.strategygame.frontlines1950.map;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Pixmap;

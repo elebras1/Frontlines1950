@@ -1,3 +1,7 @@
+Finir les credits
+
+Commencer a faire la page du tutoriel
+
 Commencer la javadoc pour les class et méthodes semblent etre définitives
 
 Afficher les regiments par Etat avec un systeme d'empilement de brigade (1 brigrade = 1 image)

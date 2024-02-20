@@ -1,4 +1,4 @@
-package com.strategygame.frontlines1950;
+package com.strategygame.frontlines1950.utils;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
@@ -7,7 +7,8 @@ import com.badlogic.gdx.graphics.Pixmap;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.strategygame.frontlines1950.utils.Triple;
+import com.strategygame.frontlines1950.map.Country;
+import com.strategygame.frontlines1950.map.Province;
 
 import java.io.BufferedReader;
 import java.io.IOException;

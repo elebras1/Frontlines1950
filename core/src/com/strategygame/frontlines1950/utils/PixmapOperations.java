@@ -2,7 +2,7 @@ package com.strategygame.frontlines1950.utils;
 
 import com.badlogic.gdx.graphics.Pixmap;
 
-public class PixmapUtils {
+public class PixmapOperations {
     /**
      * Flip a pixmap vertically
      *
