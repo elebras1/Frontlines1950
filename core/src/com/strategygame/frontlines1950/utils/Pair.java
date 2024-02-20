@@ -14,6 +14,7 @@ public class Pair<A, B> {
 
     /**
      * Create a pair
+     *
      * @param value0 the first value
      * @param value1 the second value
      */
@@ -24,6 +25,7 @@ public class Pair<A, B> {
 
     /**
      * Get the first value
+     *
      * @return the first value
      */
     public A getValue0() {
@@ -32,6 +34,7 @@ public class Pair<A, B> {
 
     /**
      * Get the second value
+     *
      * @return the second value
      */
     public B getValue1() {
@@ -40,7 +43,8 @@ public class Pair<A, B> {
 
     /**
      * Check if the pair is equal to an object
-     * @param o
+     *
+     * @param o th object to compare
      * @return true if the pair is equal to the object else false
      */
     @Override
@@ -53,6 +57,7 @@ public class Pair<A, B> {
 
     /**
      * Get the hash code of the pair
+     *
      * @return the hash code of the pair
      */
     @Override

@@ -18,6 +18,7 @@ public class Triple<A, B, C> {
 
     /**
      * Create a triple
+     *
      * @param value0 the first value
      * @param value1 the second value
      * @param value2 the third value
@@ -30,6 +31,7 @@ public class Triple<A, B, C> {
 
     /**
      * Get the first value
+     *
      * @return the first value
      */
     public A getValue0() {
@@ -38,6 +40,7 @@ public class Triple<A, B, C> {
 
     /**
      * Get the second value
+     *
      * @return the second value
      */
     public B getValue1() {
@@ -46,24 +49,46 @@ public class Triple<A, B, C> {
 
     /**
      * Get the third value
+     *
      * @return the third value
      */
     public C getValue2() {
         return value2;
     }
 
+    /**
+     * Set the first value
+     *
+     * @param value0 the first value
+     */
     public void setValue0(A value0) {
         this.value0 = value0;
     }
 
+    /**
+     * Set the second value
+     *
+     * @param value1 the second value
+     */
     public void setValue1(B value1) {
         this.value1 = value1;
     }
 
+    /**
+     * Set the third value
+     *
+     * @param value2 the third value
+     */
     public void setValue2(C value2) {
         this.value2 = value2;
     }
 
+    /**
+     * Check if the pair is equal to an object
+     *
+     * @param o th object to compare
+     * @return true if the pair is equal to the object else false
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -72,6 +97,11 @@ public class Triple<A, B, C> {
         return Objects.equals(value0, triple.value0) && Objects.equals(value1, triple.value1) && Objects.equals(value2, triple.value2);
     }
 
+    /**
+     * Get the hash code of the pair
+     *
+     * @return the hash code of the pair
+     */
     @Override
     public int hashCode() {
         return Objects.hash(value0, value1, value2);

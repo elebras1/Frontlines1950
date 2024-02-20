@@ -29,8 +29,9 @@ public class FontUtils {
 
     /**
      * Create a new font with the default size
-     * @param fontFile
-     * @return
+     *
+     * @param fontFile the font file
+     * @return then font
      */
     public static BitmapFont createFont(String fontFile) {
         FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal(fontFile));
