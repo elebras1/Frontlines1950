@@ -1,0 +1,48 @@
+package com.strategygame.frontlines1950.screens;
+
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Cursor;
+import com.badlogic.gdx.graphics.Pixmap;
+import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.strategygame.frontlines1950.utils.PixmapOperations;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class AnimatedCursor {
+    private static final float frameDuration = 1 / 15f;
+    private float elapsedTime;
+    private Animation<TextureRegion> animation;
+    private List<Cursor> cursors;
+    private int currentCursorIndex;
+
+    public AnimatedCursor() {
+        TextureAtlas atlas = new TextureAtlas(Gdx.files.internal("ui/cursor/busy/busy.atlas"));
+        this.animation = new Animation<>(frameDuration, atlas.findRegions("busy"));
+        this.animation.setFrameDuration(frameDuration);
+
+        this.cursors = new ArrayList<>();
+        for (TextureRegion region : this.animation.getKeyFrames()) {
+            Pixmap pixmap = PixmapOperations.extractPixmapFromTextureRegion(region);
+            this.cursors.add(Gdx.graphics.newCursor(pixmap, 0, 0));
+            pixmap.dispose();
+        }
+    }
+
+    public void update(float deltaTime) {
+        elapsedTime += deltaTime;
+        int frameIndex = this.animation.getKeyFrameIndex(this.elapsedTime % this.animation.getAnimationDuration());
+        if (frameIndex != this.currentCursorIndex) {
+            this.currentCursorIndex = frameIndex;
+            Gdx.graphics.setCursor(this.cursors.get(this.currentCursorIndex));
+        }
+    }
+
+    public void dispose() {
+        for (Cursor cursor : this.cursors) {
+            cursor.dispose();
+        }
+    }
+}

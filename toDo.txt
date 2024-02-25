@@ -2,6 +2,8 @@ Finir les credits
 
 Commencer a faire la page du tutoriel
 
+Regarder la doc sur AssetManage et si c'est interessant l'inclure dans le projet
+
 Commencer la javadoc pour les class et méthodes semblent etre définitives
 
 Afficher les regiments par Etat avec un systeme d'empilement de brigade (1 brigrade = 1 image)
@@ -17,3 +19,5 @@ Gestion de l'affichage des noms et regiments selon le zoom de la camera du jeu
 Creer une fenetre debug, class associé
 
 Corriger les crash quand spamclik
+
+Les données de chaque pays seront mis a jour a chaque tour

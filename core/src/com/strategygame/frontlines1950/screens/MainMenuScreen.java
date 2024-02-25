@@ -32,6 +32,7 @@ public class MainMenuScreen implements Screen {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 game.setScreen(new LoadScreen(game));
+                dispose();
             }
         });
         menuTable.add(playButton).expandY().bottom().spaceBottom(83);
@@ -44,6 +45,7 @@ public class MainMenuScreen implements Screen {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 game.setScreen(new CreditScreen(game));
+                dispose();
             }
         });
         menuTable.add(creditButton).spaceBottom(10);
@@ -95,8 +97,8 @@ public class MainMenuScreen implements Screen {
 
     @Override
     public void dispose() {
-        stage.dispose();
-        skin.dispose();
+        this.stage.dispose();
+        this.skin.dispose();
     }
 }
 

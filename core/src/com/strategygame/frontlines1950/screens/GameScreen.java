@@ -35,7 +35,6 @@ class GameScreen implements Screen {
     private Skin skinLeader;
     private int timeSpeed = 3;
     private Image speed;
-
     private Label fpsLabel;
 
     public GameScreen(World world, Game game, Country playerCountry) {
@@ -243,6 +242,9 @@ class GameScreen implements Screen {
     public void dispose() {
         this.world.dispose();
         this.batch.dispose();
-
+        this.stage.dispose();
+        this.skinTopbar.dispose();
+        this.skinFlag.dispose();
+        this.skinLeader.dispose();
     }
 }

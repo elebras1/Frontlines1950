@@ -4,8 +4,10 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.Cursor;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -53,6 +55,7 @@ public class NewGameScreen implements Screen {
         this.skinFlag = new Skin(Gdx.files.internal("images/flags/skin/flagskin.json"));
         this.skinLeader = new Skin(Gdx.files.internal("images/leaders/skin/leaderskin.json"));
 
+        this.changeCursor();
         InputMultiplexer multiplexer = new InputMultiplexer();
         multiplexer.addProcessor(this.stage);
         multiplexer.addProcessor(this.inputHandler);
@@ -145,6 +148,14 @@ public class NewGameScreen implements Screen {
         this.cam.viewportWidth = width / 2f;
         this.cam.viewportHeight = height / 2f;
         this.cam.update();
+    }
+
+    public void changeCursor() {
+        Pixmap pixmap = new Pixmap(Gdx.files.internal("ui/cursor/normal.png"));
+        int xHotspot = 0, yHotspot = 0;
+        Cursor cursor = Gdx.graphics.newCursor(pixmap, xHotspot, yHotspot);
+        pixmap.dispose();
+        Gdx.graphics.setCursor(cursor);
     }
 
 
