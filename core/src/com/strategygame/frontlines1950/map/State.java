@@ -4,6 +4,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.strategygame.frontlines1950.utils.PixmapOperations;
 
 import java.util.*;
 
@@ -18,6 +19,7 @@ public class State implements GeoLocation {
     private Country country = null;
     private int[] dimensions;
     private Texture texture;
+    private Texture selectedTexture;
     private List<Province.Pixel> borderPixels;
 
     public State(int id, Country country) {
@@ -123,24 +125,34 @@ public class State implements GeoLocation {
 
     public void createTexture() {
         Pixmap pixmap = new Pixmap(this.getDimensions()[0], this.getDimensions()[1], Pixmap.Format.RGBA8888);
+        Pixmap pixmapSelected = new Pixmap(this.getDimensions()[0], this.getDimensions()[1], Pixmap.Format.RGBA8888);
         Color color = this.getCountry().getColor();
 
         if (color != null) {
             for (Province.Pixel pixel : this.borderPixels) {
                 int relativeX = pixel.getX() - this.getOriginX();
                 int relativeY = pixel.getY() - this.getOriginY();
-                pixmap.drawPixel(relativeX, relativeY, Color.rgba8888(new Color(1f, 1f, 1f, 1f)));
+                pixmap.drawPixel(relativeX, relativeY, Color.rgba8888(new Color(0f, 0f, 0f, 1f)));
+                pixmapSelected.drawPixel(relativeX, relativeY, Color.rgba8888(new Color(1f, 1f, 1f, 1f)));
             }
         }
 
-        this.texture = new Texture(flipVertically(pixmap));
+        this.texture = new Texture(PixmapOperations.flipVertically(pixmap));
+        this.selectedTexture = new Texture(PixmapOperations.flipVertically(pixmapSelected));
         pixmap.dispose();
+        pixmapSelected.dispose();
     }
 
     public void draw(SpriteBatch batch) {
         batch.draw(this.texture, this.getOriginX(), this.getOriginY());
         batch.draw(this.texture, this.getOriginX() - WORLD_WIDTH, this.getOriginY());
         batch.draw(this.texture, this.getOriginX() + WORLD_WIDTH, this.getOriginY());
+    }
+
+    public void drawSelected(SpriteBatch batch) {
+        batch.draw(this.selectedTexture, this.getOriginX(), this.getOriginY());
+        batch.draw(this.selectedTexture, this.getOriginX() - WORLD_WIDTH, this.getOriginY());
+        batch.draw(this.selectedTexture, this.getOriginX() + WORLD_WIDTH, this.getOriginY());
     }
 
     @Override
@@ -157,7 +169,7 @@ public class State implements GeoLocation {
     }
 
     public void dispose() {
-        this.texture.dispose();
+        this.selectedTexture.dispose();
     }
 
     @Override

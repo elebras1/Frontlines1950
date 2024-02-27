@@ -10,6 +10,7 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.strategygame.frontlines1950.player.Player;
 import com.strategygame.frontlines1950.player.PlayerAi;
@@ -224,7 +225,12 @@ class GameScreen implements Screen {
         playPauseTable.add(speedToggle);
         Label date = new Label("1950.01.01", this.skinTopbar, "default");
         playPauseTable.add(date).expandX().center();
-        Image leader = new Image(this.skinLeader.getDrawable(this.playerManager.getHumanPlayer().getCountry().getId().toLowerCase()));
+        Image leader;
+        try {
+            leader = new Image(this.skinLeader.getDrawable(this.playerManager.getHumanPlayer().getCountry().getId().toLowerCase()));
+        } catch(GdxRuntimeException e) {
+            leader = new Image(this.skinLeader.getDrawable("adm"));
+        }
         secondRowTable.add(leader);
         Image prestige = new Image(this.skinTopbar.getDrawable("topbar_prestige"));
         secondRowTable.add(prestige);
@@ -251,7 +257,7 @@ class GameScreen implements Screen {
 
         this.batch.setBlendFunction(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
         this.batch.begin();
-        this.world.render(this.batch);
+        this.world.render(this.batch, this.inputHandler.getCamera().zoom);
         this.batch.end();
 
         this.inputHandler.setDelta(delta);

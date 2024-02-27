@@ -184,11 +184,17 @@ public class Country implements GeoLocation {
         pixmap.dispose();
     }
 
-    public void draw(SpriteBatch batch) {
+    public void draw(SpriteBatch batch, float zoom) {
         batch.draw(this.texture, this.getOriginX(), this.getOriginY());
         batch.draw(this.texture, this.getOriginX() - WORLD_WIDTH, this.getOriginY());
         batch.draw(this.texture, this.getOriginX() + WORLD_WIDTH, this.getOriginY());
-        this.label.draw(batch, this.borderPixels);
+        if(zoom > 0.5) {
+            this.label.draw(batch, this.borderPixels);
+        } else {
+            for(State state : this.states) {
+                state.draw(batch);
+            }
+        }
     }
 
     public void drawSelected(SpriteBatch batch) {

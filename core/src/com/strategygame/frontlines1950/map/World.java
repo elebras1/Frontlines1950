@@ -34,6 +34,7 @@ public class World {
                     province.setDimensions();
                 }
                 state.setBorderPixels();
+                state.createTexture();
             }
             country.setBorderPixels();
             country.createTexture();
@@ -94,20 +95,20 @@ public class World {
         }
     }
 
-    public void render(SpriteBatch batch) {
+    public void render(SpriteBatch batch, float zoom) {
         int i = 0;
         batch.draw(waterTexture, 0, 0);
         batch.draw(waterTexture, WORLD_WIDTH, 0);
         batch.draw(waterTexture, -WORLD_WIDTH, 0);
         for (Country country : this.countries) {
-            country.draw(batch);
+            country.draw(batch, zoom);
         }
         if(this.selectedCountry != null) {
             this.selectedCountry.drawSelected(batch);
         }
 
         if(this.selectedState != null) {
-            this.selectedState.draw(batch);
+            this.selectedState.drawSelected(batch);
         }
     }
 
@@ -148,7 +149,6 @@ public class World {
                 for (State state : country.getStates()) {
                     if (state.isPixelState(adjustedX, y)) {
                         this.selectedState = state;
-                        this.selectedState.createTexture();
                         System.out.println(selectedState);
                         break;
                     }

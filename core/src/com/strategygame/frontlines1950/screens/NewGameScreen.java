@@ -134,7 +134,7 @@ public class NewGameScreen implements Screen {
 
         this.batch.setBlendFunction(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
         this.batch.begin();
-        this.world.render(this.batch);
+        this.world.render(this.batch, this.inputHandler.getCamera().zoom);
         this.batch.end();
 
         this.inputHandler.setDelta(delta);

@@ -33,6 +33,10 @@ public class InputHandler<T extends Screen> implements InputProcessor {
         this.delta = delta;
     }
 
+    public OrthographicCamera getCamera() {
+        return this.cam;
+    }
+
     public void handleInput(List<Table> tables) {
         float speed = 1000f * this.delta;
         int screenX = Gdx.input.getX();
