@@ -52,19 +52,19 @@ public class InputHandler<T extends Screen> implements InputProcessor {
             }
         }
 
-        if (screenX < edgeSize) {
-            cam.translate(-speed * cam.zoom, 0, 0);
-        } else if (screenX > screenWidth - edgeSize) {
-            cam.translate(speed * cam.zoom, 0, 0);
+        if (screenX < this.edgeSize) {
+            this.cam.translate(-speed * this.cam.zoom, 0, 0);
+        } else if (screenX > screenWidth - this.edgeSize) {
+            this.cam.translate(speed * this.cam.zoom, 0, 0);
         }
 
-        if (screenY < edgeSize) {
-            cam.translate(0, speed * cam.zoom, 0);
-        } else if (screenY > screenHeight - edgeSize) {
-            cam.translate(0, -speed * cam.zoom, 0);
+        if (screenY < this.edgeSize) {
+            cam.translate(0, speed * this.cam.zoom, 0);
+        } else if (screenY > screenHeight - this.edgeSize) {
+            cam.translate(0, -speed * this.cam.zoom, 0);
         }
 
-        cam.zoom = MathUtils.clamp(cam.zoom, 0.1f, WORLD_WIDTH / cam.viewportWidth);
+        this.cam.zoom = MathUtils.clamp(this.cam.zoom, 0.1f, WORLD_WIDTH / this.cam.viewportWidth);
     }
 
     public void handleInput() {
@@ -74,19 +74,19 @@ public class InputHandler<T extends Screen> implements InputProcessor {
         int screenWidth = Gdx.graphics.getWidth();
         int screenHeight = Gdx.graphics.getHeight();
 
-        if (screenX < edgeSize) {
-            cam.translate(-speed * cam.zoom, 0, 0);
-        } else if (screenX > screenWidth - edgeSize) {
-            cam.translate(speed * cam.zoom, 0, 0);
+        if (screenX < this.edgeSize) {
+            this.cam.translate(-speed * this.cam.zoom, 0, 0);
+        } else if (screenX > screenWidth - this.edgeSize) {
+            this.cam.translate(speed * this.cam.zoom, 0, 0);
         }
 
-        if (screenY < edgeSize) {
-            cam.translate(0, speed * cam.zoom, 0);
-        } else if (screenY > screenHeight - edgeSize) {
-            cam.translate(0, -speed * cam.zoom, 0);
+        if (screenY < this.edgeSize) {
+            this.cam.translate(0, speed * this.cam.zoom, 0);
+        } else if (screenY > screenHeight - this.edgeSize) {
+            this.cam.translate(0, -speed * this.cam.zoom, 0);
         }
 
-        cam.zoom = MathUtils.clamp(cam.zoom, 0.1f, WORLD_WIDTH / cam.viewportWidth);
+        this.cam.zoom = MathUtils.clamp(this.cam.zoom, 0.1f, WORLD_WIDTH / this.cam.viewportWidth);
     }
 
     @Override
@@ -115,7 +115,7 @@ public class InputHandler<T extends Screen> implements InputProcessor {
 
         if (button == Input.Buttons.LEFT) {
             Vector3 worldCoordinates = new Vector3(screenX, screenY, 0);
-            cam.unproject(worldCoordinates);
+            this.cam.unproject(worldCoordinates);
             int x = Math.round(worldCoordinates.x);
             int y = Math.round(worldCoordinates.y);
             this.world.selectState(x, y);
@@ -145,8 +145,8 @@ public class InputHandler<T extends Screen> implements InputProcessor {
         float speed = 0.25f;
         float zoom = amountY * speed;
 
-        if ((cam.zoom + zoom) >= 0.00001f && (cam.zoom + zoom) <= WORLD_WIDTH / cam.viewportWidth) {
-            cam.zoom += zoom;
+        if ((this.cam.zoom + zoom) >= 0.00001f && (this.cam.zoom + zoom) <= WORLD_WIDTH / this.cam.viewportWidth) {
+            this.cam.zoom += zoom;
         }
 
         return true;
