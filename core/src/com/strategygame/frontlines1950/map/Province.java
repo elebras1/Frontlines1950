@@ -1,19 +1,19 @@
 package com.strategygame.frontlines1950.map;
 
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.math.Vector2;
 
 import java.util.*;
 
 public class Province implements GeoLocation {
     private final Set<Pixel> pixels = new HashSet<>();
     private Color color;
-    private int id = 0;
+    private int id;
     private String name;
     private State state = null;
-    private int originX;
-    private int originY;
+    private Vector2 origin;
 
-    private int[] dimensions;
+    private Dimension dimension;
     static public class Pixel {
         private final int x;
         private final int y;
@@ -86,10 +86,6 @@ public class Province implements GeoLocation {
         this.name = name;
     }
 
-    public State getState() {
-        return this.state;
-    }
-
     public void setState(State state) {
         this.state = state;
     }
@@ -107,19 +103,10 @@ public class Province implements GeoLocation {
             minY = Math.min(minY, pixel.getY());
         }
 
-        this.originX = minX;
-        this.originY = minY;
+        this.origin = new Vector2(minX, minY);
     }
 
-    public int getOriginX() {
-        return this.originX;
-    }
-
-    public int getOriginY() {
-        return this.originY;
-    }
-
-    public void setDimensions() {
+    public void setDimension() {
         int minWidth = Integer.MAX_VALUE;
         int minHeight = Integer.MAX_VALUE;
         int maxWidth = Integer.MIN_VALUE;
@@ -133,11 +120,11 @@ public class Province implements GeoLocation {
         }
         int actualWidth = maxWidth - minWidth + 1;
         int actualHeight = maxHeight - minHeight + 1;
-        this.dimensions = new int[]{actualWidth, actualHeight};
+        this.dimension = new Dimension(actualWidth, actualHeight);
     }
 
-    public int[] getDimensions() {
-        return this.dimensions;
+    public Dimension getDimension() {
+        return this.dimension;
     }
 
     @Override

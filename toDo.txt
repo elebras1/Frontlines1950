@@ -1,11 +1,11 @@
-Finir les credits
+Gestion de l'affichage des noms et regiments selon le zoom de la camera du jeu
 
 Standardiser les types L'interface GeoLocation et les classes qui l'implemente
 
-Trouver une solution pour la page loadingScreen, pas possibble d'avoir deux thread sachant que les objet opengl ne
-    peuvent etre utilisé que dans le thread principal
+Afficher les regiments par Etat avec un systeme d'empilement de brigade (1 brigade = 1 image)
 
-Afficher les regiments par Etat avec un systeme d'empilement de brigade (1 brigrade = 1 image)
+Trouver une solution pour la page loadingScreen, pas possible d'avoir deux thread sachant que les objets opengl ne
+    peuvent etre utilisé que dans le thread principal
 
 Selon la taille du zoom afficher les frontiere d'un pays et son nom ou les frontieres des etats avec les régiments
 
@@ -13,7 +13,8 @@ Ajouter l'ui dans GameScreen qui d'attaquer ou soutenir un State avec des régim
     -> selon l'action choisi le cuseur changera
     -> selection de l'etat puis selection des regiments puis selection de l'etat a attaquer ou soutenir
 
-Gestion de l'affichage des noms et regiments selon le zoom de la camera du jeu
+Rendre plus beau la carte, surtout les frontieres des pays et etats, ajouter peux etre des texture aussi selon le type
+    de terrain, donc créer une bitmap terrain
 
 Creer une fenetre debug, class associé
 

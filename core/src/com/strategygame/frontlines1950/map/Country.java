@@ -4,6 +4,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Vector2;
 
 import java.util.*;
 
@@ -15,9 +16,8 @@ public class Country implements GeoLocation {
     private final String name;
     private final Set<State> states = new HashSet<>();
     private final Color color;
-    private int originX;
-    private int originY;
-    private int[] dimensions;
+    private Vector2 origin;
+    private Dimension dimension;
     private Texture texture;
     private Texture selectedTexture;
     private Set<Province.Pixel> borderPixels;
@@ -69,19 +69,10 @@ public class Country implements GeoLocation {
             }
         }
 
-        this.originX = minX;
-        this.originY = minY;
+        this.origin = new Vector2(minX, minY);
     }
 
-    public int getOriginX() {
-        return this.originX;
-    }
-
-    public int getOriginY() {
-        return this.originY;
-    }
-
-    public void setDimensions() {
+    public void setDimension() {
         int minWidth = Integer.MAX_VALUE;
         int minHeight = Integer.MAX_VALUE;
         int maxWidth = Integer.MIN_VALUE;
@@ -100,15 +91,15 @@ public class Country implements GeoLocation {
         int actualWidth = maxWidth - minWidth + 1;
         int actualHeight = maxHeight - minHeight + 1;
 
-        this.dimensions = new int[]{actualWidth, actualHeight};
+        this.dimension = new Dimension(actualWidth, actualHeight);
     }
 
-    public int[] getDimensions() {
-        return this.dimensions;
+    public Dimension getDimension() {
+        return this.dimension;
     }
 
     public boolean isPixelCountry(int x, int y) {
-        if (x < this.originX || x > this.originX + this.dimensions[0] || y < this.originY || y > this.originY + this.dimensions[1]) {
+        if (x < this.origin.x || x > this.origin.x + this.dimension.getWidth() || y < this.origin.y || y > this.origin.y + this.dimension.getHeight()) {
             return false;
         }
 
@@ -148,13 +139,13 @@ public class Country implements GeoLocation {
     }
 
     public void createTexture() {
-        Pixmap pixmap = new Pixmap(this.getDimensions()[0], this.getDimensions()[1], Pixmap.Format.RGBA8888);
+        Pixmap pixmap = new Pixmap(this.dimension.getWidth(), this.dimension.getHeight(), Pixmap.Format.RGBA8888);
         if(color != null) {
             for(State state : this.getStates()) {
                 for (Province province : state.getProvinces()) {
                     for (Province.Pixel pixel : province.getPixels()) {
-                        int relativeX = pixel.getX() - this.getOriginX();
-                        int relativeY = pixel.getY() - this.getOriginY();
+                        int relativeX = (int) (pixel.getX() - this.origin.x);
+                        int relativeY = (int) (pixel.getY() - this.origin.y);
                         if(this.borderPixels.contains(pixel)) {
                             pixmap.drawPixel(relativeX, relativeY, Color.rgba8888(new Color(0 ,0 ,0, 1)));
                         }
@@ -171,11 +162,11 @@ public class Country implements GeoLocation {
     }
 
     public void createSelectedTexture() {
-        Pixmap pixmap = new Pixmap(this.getDimensions()[0], this.getDimensions()[1], Pixmap.Format.RGBA8888);
+        Pixmap pixmap = new Pixmap(this.dimension.getWidth(), this.dimension.getHeight(), Pixmap.Format.RGBA8888);
         if(color != null) {
             for(Province.Pixel pixel : this.borderPixels) {
-                int relativeX = pixel.getX() - this.getOriginX();
-                int relativeY = pixel.getY() - this.getOriginY();
+                int relativeX = (int) (pixel.getX() - this.origin.x);
+                int relativeY = (int) (pixel.getY() - this.origin.y);
                 pixmap.drawPixel(relativeX, relativeY, Color.rgba8888(new Color(1 ,1 ,1, 1)));
             }
         }
@@ -185,9 +176,9 @@ public class Country implements GeoLocation {
     }
 
     public void draw(SpriteBatch batch, float zoom) {
-        batch.draw(this.texture, this.getOriginX(), this.getOriginY());
-        batch.draw(this.texture, this.getOriginX() - WORLD_WIDTH, this.getOriginY());
-        batch.draw(this.texture, this.getOriginX() + WORLD_WIDTH, this.getOriginY());
+        batch.draw(this.texture, this.origin.x, this.origin.y);
+        batch.draw(this.texture, this.origin.x - WORLD_WIDTH, this.origin.y);
+        batch.draw(this.texture, this.origin.x + WORLD_WIDTH, this.origin.y);
         if(zoom > 0.5) {
             this.label.draw(batch, this.borderPixels);
         } else {
@@ -198,9 +189,9 @@ public class Country implements GeoLocation {
     }
 
     public void drawSelected(SpriteBatch batch) {
-        batch.draw(this.selectedTexture, this.getOriginX(), this.getOriginY());
-        batch.draw(this.selectedTexture, this.getOriginX() - WORLD_WIDTH, this.getOriginY());
-        batch.draw(this.selectedTexture, this.getOriginX() + WORLD_WIDTH, this.getOriginY());
+        batch.draw(this.selectedTexture, this.origin.x, this.origin.y);
+        batch.draw(this.selectedTexture, this.origin.x - WORLD_WIDTH, this.origin.y);
+        batch.draw(this.selectedTexture, this.origin.x + WORLD_WIDTH, this.origin.y);
         this.label.draw(batch, this.borderPixels);
     }
 

@@ -25,13 +25,13 @@ public class World {
         this.loadStatesAndProvinces();
         for(Country country : countries) {
             country.setOrigin();
-            country.setDimensions();
+            country.setDimension();
             for(State state : country.getStates()) {
                 state.setOrigin();
-                state.setDimensions();
+                state.setDimension();
                 for(Province province : state.getProvinces()) {
                     province.setOrigin();
-                    province.setDimensions();
+                    province.setDimension();
                 }
                 state.setBorderPixels();
                 state.createTexture();

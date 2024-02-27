@@ -4,6 +4,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Vector2;
 import com.strategygame.frontlines1950.utils.PixmapOperations;
 
 import java.util.*;
@@ -14,10 +15,9 @@ import static com.strategygame.frontlines1950.utils.PixmapOperations.flipVertica
 public class State implements GeoLocation {
     private final int id;
     private final Set<Province> provinces = new HashSet<>();
-    private int originX;
-    private int originY;
+    private Vector2 origin;
     private Country country = null;
-    private int[] dimensions;
+    private Dimension dimension;
     private Texture texture;
     private Texture selectedTexture;
     private List<Province.Pixel> borderPixels;
@@ -56,19 +56,10 @@ public class State implements GeoLocation {
             }
         }
 
-        this.originX = minX;
-        this.originY = minY;
+        this.origin = new Vector2(minX, minY);
     }
 
-    public int getOriginX() {
-        return this.originX;
-    }
-
-    public int getOriginY() {
-        return this.originY;
-    }
-
-    public void setDimensions() {
+    public void setDimension() {
         int minWidth = Integer.MAX_VALUE;
         int minHeight = Integer.MAX_VALUE;
         int maxWidth = Integer.MIN_VALUE;
@@ -84,15 +75,15 @@ public class State implements GeoLocation {
         }
         int actualWidth = maxWidth - minWidth + 1;
         int actualHeight = maxHeight - minHeight + 1;
-        this.dimensions = new int[]{actualWidth, actualHeight};
+        this.dimension = new Dimension(actualWidth, actualHeight);
     }
 
-    public int[] getDimensions() {
-        return this.dimensions;
+    public Dimension getDimension() {
+        return this.dimension;
     }
 
     public boolean isPixelState(int x, int y) {
-        if (x < this.originX || x > this.originX + this.dimensions[0] || y < this.originY || y > this.originY + this.dimensions[1]) {
+        if (x < this.origin.x || x > this.origin.x + this.dimension.getWidth() || y < this.origin.y || y > this.origin.y + this.dimension.getHeight()) {
             return false;
         }
 
@@ -124,14 +115,14 @@ public class State implements GeoLocation {
     }
 
     public void createTexture() {
-        Pixmap pixmap = new Pixmap(this.getDimensions()[0], this.getDimensions()[1], Pixmap.Format.RGBA8888);
-        Pixmap pixmapSelected = new Pixmap(this.getDimensions()[0], this.getDimensions()[1], Pixmap.Format.RGBA8888);
+        Pixmap pixmap = new Pixmap(this.getDimension().getWidth(), this.getDimension().getHeight(), Pixmap.Format.RGBA8888);
+        Pixmap pixmapSelected = new Pixmap(this.getDimension().getWidth(), this.getDimension().getHeight(), Pixmap.Format.RGBA8888);
         Color color = this.getCountry().getColor();
 
         if (color != null) {
             for (Province.Pixel pixel : this.borderPixels) {
-                int relativeX = pixel.getX() - this.getOriginX();
-                int relativeY = pixel.getY() - this.getOriginY();
+                int relativeX = (int) (pixel.getX() - this.origin.x);
+                int relativeY = (int) (pixel.getY() - this.origin.y);
                 pixmap.drawPixel(relativeX, relativeY, Color.rgba8888(new Color(0f, 0f, 0f, 1f)));
                 pixmapSelected.drawPixel(relativeX, relativeY, Color.rgba8888(new Color(1f, 1f, 1f, 1f)));
             }
@@ -144,15 +135,15 @@ public class State implements GeoLocation {
     }
 
     public void draw(SpriteBatch batch) {
-        batch.draw(this.texture, this.getOriginX(), this.getOriginY());
-        batch.draw(this.texture, this.getOriginX() - WORLD_WIDTH, this.getOriginY());
-        batch.draw(this.texture, this.getOriginX() + WORLD_WIDTH, this.getOriginY());
+        batch.draw(this.texture, this.origin.x, this.origin.y);
+        batch.draw(this.texture, this.origin.x - WORLD_WIDTH, this.origin.y);
+        batch.draw(this.texture, this.origin.x + WORLD_WIDTH, this.origin.y);
     }
 
     public void drawSelected(SpriteBatch batch) {
-        batch.draw(this.selectedTexture, this.getOriginX(), this.getOriginY());
-        batch.draw(this.selectedTexture, this.getOriginX() - WORLD_WIDTH, this.getOriginY());
-        batch.draw(this.selectedTexture, this.getOriginX() + WORLD_WIDTH, this.getOriginY());
+        batch.draw(this.selectedTexture, this.origin.x, this.origin.y);
+        batch.draw(this.selectedTexture, this.origin.x - WORLD_WIDTH, this.origin.y);
+        batch.draw(this.selectedTexture, this.origin.x + WORLD_WIDTH, this.origin.y);
     }
 
     @Override
