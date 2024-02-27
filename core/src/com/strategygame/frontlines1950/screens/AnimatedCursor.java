@@ -12,15 +12,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AnimatedCursor {
-    private static final float frameDuration = 1 / 15f;
+    private static final float frameDuration = 1 / 11f;
     private float elapsedTime;
     private Animation<TextureRegion> animation;
     private List<Cursor> cursors;
     private int currentCursorIndex;
 
-    public AnimatedCursor() {
-        TextureAtlas atlas = new TextureAtlas(Gdx.files.internal("ui/cursor/busy/busy.atlas"));
-        this.animation = new Animation<>(frameDuration, atlas.findRegions("busy"));
+    public AnimatedCursor(String name) {
+        TextureAtlas atlas = new TextureAtlas(Gdx.files.internal("ui/cursor/" + name + "/" + name + ".atlas"));
+        this.animation = new Animation<>(frameDuration, atlas.findRegions(name));
         this.animation.setFrameDuration(frameDuration);
 
         this.cursors = new ArrayList<>();

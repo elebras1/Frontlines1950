@@ -1,6 +1,11 @@
 Finir les credits
 
+Standardiser les types L'interface GeoLactaion et les class qui l'implemente
+
 Commencer a faire la page du tutoriel
+
+Trouver une solution pour la page loadingScreen, pas possibble d'avoir deux thread sachant que les objet opengl ne
+    peuvent etre utilisé que dans le thread principal
 
 Regarder la doc sur AssetManage et si c'est interessant l'inclure dans le projet
 
@@ -17,7 +22,5 @@ Ajouter l'ui dans GameScreen qui d'attaquer ou soutenir un State avec des régim
 Gestion de l'affichage des noms et regiments selon le zoom de la camera du jeu
 
 Creer une fenetre debug, class associé
-
-Corriger les crash quand spamclik
 
 Les données de chaque pays seront mis a jour a chaque tour

@@ -21,8 +21,8 @@ public class World {
 
     public World() {
         this.dataManager = new DataManager();
-        loadCountries();
-        loadStatesAndProvinces();
+        this.loadCountries();
+        this.loadStatesAndProvinces();
         for(Country country : countries) {
             country.setOrigin();
             country.setDimensions();

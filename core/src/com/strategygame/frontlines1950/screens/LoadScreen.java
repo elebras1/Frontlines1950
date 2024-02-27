@@ -3,15 +3,11 @@ package com.strategygame.frontlines1950.screens;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.strategygame.frontlines1950.map.World;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -21,9 +17,8 @@ public class LoadScreen implements Screen {
     private final AnimatedCursor animatedCursor;
 
     public LoadScreen(Game game) {
-        AssetManager assetManager = new AssetManager();
         this.batch = new SpriteBatch();
-        this.animatedCursor = new AnimatedCursor();
+        this.animatedCursor = new AnimatedCursor("busy");
         this.showImage();
         CompletableFuture.runAsync(() -> {
             Gdx.app.postRunnable(() -> {

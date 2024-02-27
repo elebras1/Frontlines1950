@@ -137,6 +137,7 @@ public class NewGameScreen implements Screen {
         this.world.render(this.batch);
         this.batch.end();
 
+        this.inputHandler.setDelta(delta);
         this.inputHandler.handleInput();
 
         this.stage.act();

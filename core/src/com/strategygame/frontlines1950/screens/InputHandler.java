@@ -6,15 +6,21 @@ import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.math.MathUtils;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
+import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.strategygame.frontlines1950.map.World;
+
+import java.util.List;
 
 import static com.strategygame.frontlines1950.Frontlines1950.WORLD_WIDTH;
 
 public class InputHandler<T extends Screen> implements InputProcessor {
     final OrthographicCamera cam;
     final World world;
+    private float delta = 0;
     final T screen;
+    private final int edgeSize = 50;
 
     public InputHandler(OrthographicCamera cam, World world, T screen) {
 
@@ -22,29 +28,65 @@ public class InputHandler<T extends Screen> implements InputProcessor {
         this.world = world;
         this.screen = screen;
     }
-    public void handleInput() {
-        float speed = 5f;
 
-        if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
-            cam.translate(-speed * cam.zoom, 0, 0);
+    public void setDelta(float delta) {
+        this.delta = delta;
+    }
+
+    public void handleInput(List<Table> tables) {
+        float speed = 1000f * this.delta;
+        int screenX = Gdx.input.getX();
+        int screenY = Gdx.input.getY();
+        int screenWidth = Gdx.graphics.getWidth();
+        int screenHeight = Gdx.graphics.getHeight();
+
+        for(Table table : tables) {
+            if (table == null) {
+                continue;
+            }
+            Vector2 tablePos = table.localToStageCoordinates(new Vector2(0, 0));
+            Vector2 tableDim = new Vector2(table.getWidth(), table.getHeight());
+            Vector2 tableOver = new Vector2(screenX, screenHeight - screenY);
+            if (tablePos.x < tableOver.x && tableOver.x < tablePos.x + tableDim.x && tablePos.y < tableOver.y && tableOver.y < tablePos.y + tableDim.y) {
+                return;
+            }
         }
-        if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
+
+        if (screenX < edgeSize) {
+            cam.translate(-speed * cam.zoom, 0, 0);
+        } else if (screenX > screenWidth - edgeSize) {
             cam.translate(speed * cam.zoom, 0, 0);
         }
-        if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) {
-            cam.translate(0, -speed * cam.zoom, 0);
-        }
-        if (Gdx.input.isKeyPressed(Input.Keys.UP)) {
+
+        if (screenY < edgeSize) {
             cam.translate(0, speed * cam.zoom, 0);
+        } else if (screenY > screenHeight - edgeSize) {
+            cam.translate(0, -speed * cam.zoom, 0);
         }
 
         cam.zoom = MathUtils.clamp(cam.zoom, 0.1f, WORLD_WIDTH / cam.viewportWidth);
+    }
 
-        //float effectiveViewportWidth = cam.viewportWidth * cam.zoom;
-        //float effectiveViewportHeight = cam.viewportHeight * cam.zoom;
+    public void handleInput() {
+        float speed = 1000f * this.delta;
+        int screenX = Gdx.input.getX();
+        int screenY = Gdx.input.getY();
+        int screenWidth = Gdx.graphics.getWidth();
+        int screenHeight = Gdx.graphics.getHeight();
 
-        //cam.position.y = MathUtils.clamp(cam.position.y, effectiveViewportHeight / 2f, WORLD_HEIGHT - effectiveViewportHeight / 2f);
-        //cam.position.x = MathUtils.clamp(cam.position.x, effectiveViewportWidth / 2f, WORLD_WIDTH - effectiveViewportWidth / 2f);
+        if (screenX < edgeSize) {
+            cam.translate(-speed * cam.zoom, 0, 0);
+        } else if (screenX > screenWidth - edgeSize) {
+            cam.translate(speed * cam.zoom, 0, 0);
+        }
+
+        if (screenY < edgeSize) {
+            cam.translate(0, speed * cam.zoom, 0);
+        } else if (screenY > screenHeight - edgeSize) {
+            cam.translate(0, -speed * cam.zoom, 0);
+        }
+
+        cam.zoom = MathUtils.clamp(cam.zoom, 0.1f, WORLD_WIDTH / cam.viewportWidth);
     }
 
     @Override
@@ -103,7 +145,7 @@ public class InputHandler<T extends Screen> implements InputProcessor {
         float speed = 0.25f;
         float zoom = amountY * speed;
 
-        if ((cam.zoom + zoom) >= 0.1f && (cam.zoom + zoom) <= WORLD_WIDTH / cam.viewportWidth) {
+        if ((cam.zoom + zoom) >= 0.00001f && (cam.zoom + zoom) <= WORLD_WIDTH / cam.viewportWidth) {
             cam.zoom += zoom;
         }
 

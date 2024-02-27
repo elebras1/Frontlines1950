@@ -13,8 +13,13 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class CreditScreen implements Screen {
+    private static final List<String> credits = Arrays.asList("Game Design, Development, and Artwork by: \n Le Bras Erwan \n\nGitHub repository: \n https://github.com/elebras1/Frontlines1950", "Special Thanks to: \n Paradox Interactive for the assets from the cancelled game East vs West: A Hearts of Iron Game.", "Quote: \n It is, of course, much easier to shout, abuse, and howl than to attempt to relate, to explain.\n -Lenin");
     private final Stage stage;
+    private int creditIndex = 0;
 
     public CreditScreen(Game game) {
         this.stage = new Stage(new ScreenViewport());
@@ -25,14 +30,11 @@ public class CreditScreen implements Screen {
         rootTable.setFillParent(true);
         rootTable.setBackground(skinMainmenu.getDrawable("frontend_main_bg"));
         Table messageTable = new Table();
-        messageTable.padLeft(30).padRight(30).padTop(90).padBottom(7);
+        messageTable.padLeft(30).padRight(30).padTop(100).padBottom(7);
         messageTable.setBackground(skinMessage.getDrawable("message_naked_bgl"));
-        Label credit = new Label("Game creator : Le Bras Erwan - 2024", skinMessage);
-        messageTable.add(credit).expandX().left();
-        messageTable.row();
-        Label citation = new Label("Citation of Lenin : The oppressed are allowed once every few years to decide which particular representatives of the oppressing class shall represent and repress them in parliament.", skinMessage);
-        citation.setWrap(true);
-        messageTable.add(citation).expandX().fill().left().spaceTop(5);
+        Label credit = new Label(credits.get(0), skinMessage);
+        credit.setWrap(true);
+        messageTable.add(credit).expandX().fill().left();
 
         messageTable.row();
         Table buttonTable = new Table();
@@ -46,6 +48,13 @@ public class CreditScreen implements Screen {
         });
         buttonTable.add(exitButton);
         TextButton nextButton = new TextButton("Next", skinMessage, "next");
+        nextButton.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                creditIndex = (creditIndex + 1) % credits.size(); // Mettez à jour l'index de crédit
+                credit.setText(credits.get(creditIndex)); // Mettez à jour le texte du label de crédit
+            }
+        });
         buttonTable.add(nextButton);
         rootTable.add(messageTable).expand().center();
         this.stage.addActor(rootTable);

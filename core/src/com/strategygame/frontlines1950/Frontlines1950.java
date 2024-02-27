@@ -4,6 +4,7 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.*;
+import com.strategygame.frontlines1950.screens.CursorChanger;
 import com.strategygame.frontlines1950.screens.MainMenuScreen;
 
 public class Frontlines1950 extends Game {
@@ -14,18 +15,11 @@ public class Frontlines1950 extends Game {
 
     @Override
     public void create() {
-        this.changeCursor();
+        CursorChanger cursorChanger = new CursorChanger();
+        cursorChanger.defaultCursor();
 
         this.screen = new MainMenuScreen(this);
         this.setScreen(this.screen);
-    }
-
-    public void changeCursor() {
-        Pixmap pixmap = new Pixmap(Gdx.files.internal("ui/cursor/normal.png"));
-        int xHotspot = 0, yHotspot = 0;
-        Cursor cursor = Gdx.graphics.newCursor(pixmap, xHotspot, yHotspot);
-        pixmap.dispose();
-        Gdx.graphics.setCursor(cursor);
     }
 
     @Override

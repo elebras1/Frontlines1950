@@ -10,13 +10,15 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
-import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.strategygame.frontlines1950.player.Player;
 import com.strategygame.frontlines1950.player.PlayerAi;
 import com.strategygame.frontlines1950.player.PlayerManager;
 import com.strategygame.frontlines1950.map.Country;
 import com.strategygame.frontlines1950.map.World;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static com.strategygame.frontlines1950.Frontlines1950.WORLD_HEIGHT;
 import static com.strategygame.frontlines1950.Frontlines1950.WORLD_WIDTH;
@@ -33,9 +35,13 @@ class GameScreen implements Screen {
     private Skin skinTopbar;
     private Skin skinFlag;
     private Skin skinLeader;
+    private Skin skinAction;
     private int timeSpeed = 3;
     private Image speed;
     private Label fpsLabel;
+    private CursorChanger cursorChanger;
+    private Table topbarTable;
+    private Table actionTable;
 
     public GameScreen(World world, Game game, Country playerCountry) {
         this.world = world;
@@ -55,6 +61,8 @@ class GameScreen implements Screen {
             }
         }
         this.initializedTopbar();
+        this.cursorChanger = new CursorChanger();
+        this.cursorChanger.defaultCursor();
     }
 
     private void initializedTopbar() {
@@ -62,6 +70,7 @@ class GameScreen implements Screen {
         this.skinTopbar = new Skin(Gdx.files.internal("ui/topbar/skin/topbarskin.json"));
         this.skinFlag = new Skin(Gdx.files.internal("images/flags/skin/flagskin.json"));
         this.skinLeader = new Skin(Gdx.files.internal("images/leaders/skin/leaderskin.json"));
+        this.skinAction = new Skin(Gdx.files.internal("ui/action/skin/actionskin.json"));
 
         InputMultiplexer multiplexer = new InputMultiplexer();
         multiplexer.addProcessor(this.stage);
@@ -69,27 +78,58 @@ class GameScreen implements Screen {
         Gdx.input.setInputProcessor(multiplexer);
         // UI table
         Table rootTable = new Table();
+        rootTable.padRight(10).padBottom(10);
         rootTable.setFillParent(true);
         this.stage.addActor(rootTable);
         // Topbar table
-        Table topbarTable = new Table();
-        Drawable background = this.skinTopbar.getDrawable("naked_topbar");
-        topbarTable.setBackground(background);
-        rootTable.add(topbarTable).expand().left().top();
+        this.topbarTable = new Table();
+        this.topbarTable.setBackground(this.skinTopbar.getDrawable("naked_topbar"));
+        rootTable.add(this.topbarTable).expand().left().top();
 
-        initializeFirstRow(topbarTable);
-        topbarTable.row();
-        initializeSecondRow(topbarTable);
+        initializeFirstRow();
+        this.topbarTable.row();
+        initializeSecondRow();
+
+        this.actionTable = new Table();
+        this.actionTable.padLeft(15).padRight(12);
+        this.actionTable.setBackground(this.skinAction.getDrawable("action_bar"));
+        rootTable.add(this.actionTable).bottom();
+        Button attack = new Button(this.skinAction, "unit_attack");
+        attack.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                cursorChanger.animatedCursor("attack");
+            }
+        });
+        this.actionTable.add(attack);
+        Button support = new Button(this.skinAction, "unit_support");
+        support.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                cursorChanger.animatedCursor("support");
+            }
+        });
+        this.actionTable.add(support).expandX().left();
+        Button returnAction = new Button(this.skinAction, "return");
+        returnAction.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                    cursorChanger.defaultCursor();
+            }
+        });
+        this.actionTable.add(returnAction);
+        Button confirm = new Button(this.skinAction, "confirm");
+        this.actionTable.add(confirm);
 
         this.fpsLabel = new Label("", this.skinTopbar, "green");
         this.fpsLabel.setPosition(stage.getWidth() - 60, stage.getHeight() - 20);
         this.stage.addActor(this.fpsLabel);
     }
 
-    private void initializeFirstRow(Table topbarTable) {
+    private void initializeFirstRow() {
         // the first row of the topbar table
         Table firstRowTable = new Table();
-        topbarTable.add(firstRowTable).expandX();
+        this.topbarTable.add(firstRowTable).expandX();
         //firstRowTable.debug();
         firstRowTable.padLeft(25).padBottom(10);
         // the main data table of th first row
@@ -139,10 +179,10 @@ class GameScreen implements Screen {
         firstRowTable.add(unityLabel);
     }
 
-    private void initializeSecondRow(Table topbarTable) {
+    private void initializeSecondRow() {
         // the second row of the topbar table
         Table secondRowTable = new Table();
-        topbarTable.add(secondRowTable).expandX().left();
+        this.topbarTable.add(secondRowTable).expandX().left();
         secondRowTable.padLeft(10);
         Table playPauseTable = new Table();
         secondRowTable.add(playPauseTable);
@@ -200,6 +240,9 @@ class GameScreen implements Screen {
         Gdx.gl.glClearColor(1, 1, 1, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
+        if(this.cursorChanger.getAnimatedCursor() != null) {
+            this.cursorChanger.getAnimatedCursor().update(delta);
+        }
 
         float camX = this.cam.position.x;
         camX = (camX + WORLD_WIDTH) % WORLD_WIDTH;
@@ -211,7 +254,11 @@ class GameScreen implements Screen {
         this.world.render(this.batch);
         this.batch.end();
 
-        this.inputHandler.handleInput();
+        this.inputHandler.setDelta(delta);
+        List<Table> tables = new ArrayList<>();
+        tables.add(this.topbarTable);
+        tables.add(this.actionTable);
+        this.inputHandler.handleInput(tables);
 
         this.fpsLabel.setText(Gdx.graphics.getFramesPerSecond());
 
@@ -246,5 +293,6 @@ class GameScreen implements Screen {
         this.skinTopbar.dispose();
         this.skinFlag.dispose();
         this.skinLeader.dispose();
+        this.cursorChanger.dispose();
     }
 }
