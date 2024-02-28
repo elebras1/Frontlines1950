@@ -31,6 +31,8 @@ public class CursorChanger {
     }
 
     public void dispose() {
-        this.animatedCursor.dispose();
+        if(this.animatedCursor != null) {
+            this.animatedCursor.dispose();
+        }
     }
 }
