@@ -1,4 +1,4 @@
-package com.strategygame.frontlines1950.screens;
+package com.strategygame.frontlines1950.ui;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Cursor;

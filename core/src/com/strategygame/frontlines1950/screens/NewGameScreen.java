@@ -9,15 +9,14 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
-import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
-import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.strategygame.frontlines1950.map.Country;
 import com.strategygame.frontlines1950.map.World;
+import com.strategygame.frontlines1950.ui.CursorChanger;
+import com.strategygame.frontlines1950.ui.NewGameUi;
 
 import static com.strategygame.frontlines1950.Frontlines1950.WORLD_HEIGHT;
 import static com.strategygame.frontlines1950.Frontlines1950.WORLD_WIDTH;
@@ -28,14 +27,10 @@ public class NewGameScreen implements Screen {
     private final OrthographicCamera cam;
     private final SpriteBatch batch;
     private final NewGameInputHandler<NewGameScreen> inputHandler;
+    private final NewGameUi newGameUi;
     private Country selectedCountry;
     private Stage stage;
-    private Skin skinUi;
-    private Skin skinFlag;
-    private Skin skinLeader;
-    private Label label;
-    private Image leader;
-    private Image flag;
+    private CursorChanger cursorChanger;
 
     public NewGameScreen(World world, Game game) {
         this.world = world;
@@ -46,16 +41,15 @@ public class NewGameScreen implements Screen {
         this.cam.update();
         this.batch = new SpriteBatch();
         this.inputHandler = new NewGameInputHandler<>(cam, world, this);
+        this.newGameUi = new NewGameUi(this);
         this.initializeUi();
     }
 
     private void initializeUi() {
         this.stage = new Stage(new ScreenViewport());
-        this.skinUi = new Skin(Gdx.files.internal("ui/newgame/skin/uiskin.json"));
-        this.skinFlag = new Skin(Gdx.files.internal("images/flags/skin/flagskin.json"));
-        this.skinLeader = new Skin(Gdx.files.internal("images/leaders/skin/leaderskin.json"));
 
-        this.changeCursor();
+        this.cursorChanger = new CursorChanger();
+        this.cursorChanger.defaultCursor();
         InputMultiplexer multiplexer = new InputMultiplexer();
         multiplexer.addProcessor(this.stage);
         multiplexer.addProcessor(this.inputHandler);
@@ -63,55 +57,38 @@ public class NewGameScreen implements Screen {
 
         Table rootTable = new Table();
         rootTable.setFillParent(true);
-        stage.addActor(rootTable);
+        this.stage.addActor(rootTable);
 
-        Table table = new Table();
-        Image scenario = new Image(this.skinUi.getDrawable("frontend_scenario_entry"));
-        table.add(scenario);
+        Table selectedScenarioTable = this.newGameUi.createSelectedScenarioTable();
+        rootTable.add(selectedScenarioTable).expand().top().left();
 
-        Table choiceTable = new Table();
-        Drawable background = this.skinUi.getDrawable("frontend_selected_bg");
-        choiceTable.setBackground(background);
-        choiceTable.padLeft(9).padBottom(4);
-        this.flag = new Image(this.skinFlag.getDrawable("def"));
-        choiceTable.add(this.flag).expandY().bottom().spaceBottom(7);
-        this.label = new Label("XXX", this.skinUi);
-        choiceTable.add(this.label).expandY().left().bottom().spaceBottom(22).spaceLeft(5);
-        choiceTable.row();
-        this.leader = new Image(this.skinLeader.getDrawable("def"));
-        choiceTable.add(this.leader).expandX().left();
-        TextButton playButton = new TextButton("Play", this.skinUi);
-        choiceTable.add(playButton);
-        playButton.addListener(new ClickListener() {
-            @Override
-            public void clicked(InputEvent event, float x, float y) {
-                world.deselectCountry();
-                game.setScreen(new GameScreen(world, game, selectedCountry));
-                dispose();
-            }
-        });
-        choiceTable.add().spaceLeft(8);
-
-        table.row();
-        table.add(choiceTable);
-        rootTable.add(table).expand().top().left();
-
-        Image order = new Image(this.skinUi.getDrawable("frontend_selected_scenario"));
-        order.setPosition((stage.getWidth() - order.getWidth()) / 2, stage.getHeight() - order.getHeight());
-        stage.addActor(order);
+        Image orderScenarioImage = this.newGameUi.createOrderScenarioImage();
+        orderScenarioImage.setPosition((stage.getWidth() - orderScenarioImage.getWidth()) / 2, stage.getHeight() - orderScenarioImage.getHeight());
+        stage.addActor(orderScenarioImage);
     }
 
+    public World getWorld() {
+        return this.world;
+    }
+
+    public Game getGame() {
+        return this.game;
+    }
 
     public void setSelectedCountry(Country country) {
 
         this.selectedCountry = country;
-        this.label.setText(this.selectedCountry.getId());
-        this.flag.setDrawable(this.skinFlag.getDrawable(country.getId().toLowerCase()));
+        this.newGameUi.setLabel(this.selectedCountry.getId());
+        this.newGameUi.setFlag(country.getId().toLowerCase());
         try {
-            this.leader.setDrawable(this.skinLeader.getDrawable(country.getId().toLowerCase()));
+            this.newGameUi.setLeader(country.getId().toLowerCase());
         } catch(GdxRuntimeException e) {
-            this.leader.setDrawable(this.skinLeader.getDrawable("adm"));
+            this.newGameUi.setLeaderDefault();
         }
+    }
+
+    public Country getSelectedCountry() {
+        return this.selectedCountry;
     }
 
     @Override
@@ -151,15 +128,6 @@ public class NewGameScreen implements Screen {
         this.cam.update();
     }
 
-    public void changeCursor() {
-        Pixmap pixmap = new Pixmap(Gdx.files.internal("ui/cursor/normal.png"));
-        int xHotspot = 0, yHotspot = 0;
-        Cursor cursor = Gdx.graphics.newCursor(pixmap, xHotspot, yHotspot);
-        pixmap.dispose();
-        Gdx.graphics.setCursor(cursor);
-    }
-
-
     @Override
     public void pause() {
 
@@ -177,9 +145,7 @@ public class NewGameScreen implements Screen {
 
     @Override
     public void dispose() {
-        this.skinUi.dispose();
-        this.skinLeader.dispose();
-        this.skinFlag.dispose();
         this.stage.dispose();
+        this.cursorChanger.dispose();
     }
 }

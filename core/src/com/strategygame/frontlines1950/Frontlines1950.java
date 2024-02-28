@@ -1,10 +1,8 @@
 package com.strategygame.frontlines1950;
 
 import com.badlogic.gdx.Game;
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.graphics.*;
-import com.strategygame.frontlines1950.screens.CursorChanger;
+import com.strategygame.frontlines1950.ui.CursorChanger;
 import com.strategygame.frontlines1950.screens.MainMenuScreen;
 
 public class Frontlines1950 extends Game {

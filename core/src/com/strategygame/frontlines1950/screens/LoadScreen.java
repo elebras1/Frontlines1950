@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.strategygame.frontlines1950.map.World;
+import com.strategygame.frontlines1950.ui.AnimatedCursor;
 
 import java.util.concurrent.CompletableFuture;
 

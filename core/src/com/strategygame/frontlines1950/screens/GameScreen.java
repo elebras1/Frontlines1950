@@ -17,6 +17,7 @@ import com.strategygame.frontlines1950.player.PlayerAi;
 import com.strategygame.frontlines1950.player.PlayerManager;
 import com.strategygame.frontlines1950.map.Country;
 import com.strategygame.frontlines1950.map.World;
+import com.strategygame.frontlines1950.ui.CursorChanger;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +25,7 @@ import java.util.List;
 import static com.strategygame.frontlines1950.Frontlines1950.WORLD_HEIGHT;
 import static com.strategygame.frontlines1950.Frontlines1950.WORLD_WIDTH;
 
-class GameScreen implements Screen {
+public class GameScreen implements Screen {
 
     private final World world;
     private final Game game;
