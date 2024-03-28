@@ -5,22 +5,24 @@ import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
+import com.strategygame.frontlines1950.utils.Bresenham;
 import com.strategygame.frontlines1950.utils.PixmapOperations;
 
 import java.util.*;
 
 import static com.strategygame.frontlines1950.Frontlines1950.WORLD_WIDTH;
-import static com.strategygame.frontlines1950.utils.PixmapOperations.flipVertically;
 
 public class State implements GeoLocation {
     private final int id;
     private final Set<Province> provinces = new HashSet<>();
     private Vector2 origin;
+    private Vector2 center;
     private Country country = null;
     private Dimension dimension;
     private Texture texture;
     private Texture selectedTexture;
     private List<Province.Pixel> borderPixels;
+    private List<Regiment> regiments;
 
     public State(int id, Country country) {
 
@@ -57,6 +59,33 @@ public class State implements GeoLocation {
         }
 
         this.origin = new Vector2(minX, minY);
+    }
+
+    public void setCenter() {
+        List<Province.Pixel> borderPixelsList = new ArrayList<>(borderPixels);
+        int step = 5;
+        int maxDistance = 0;
+        Province.Pixel pixelA = null;
+        Province.Pixel pixelB = null;
+
+        for (int i = 0; i < borderPixelsList.size(); i += step) {
+            Province.Pixel tempPixelA = borderPixelsList.get(i);
+            for (int j = i + step; j < borderPixelsList.size(); j += step) {
+                Province.Pixel tempPixelB = borderPixelsList.get(j);
+                int distance = (int) Math.sqrt(Math.pow(tempPixelA.getX() - tempPixelB.getX(), 2) + Math.pow(tempPixelA.getY() - tempPixelB.getY(), 2));
+                if (distance > maxDistance && Bresenham.isLineInState(tempPixelA, tempPixelB, this) && tempPixelA.getX() < tempPixelB.getX()) {
+                    maxDistance = distance;
+                    pixelA = tempPixelA;
+                    pixelB = tempPixelB;
+                }
+            }
+        }
+        if(pixelA == null) {
+            return;
+        }
+        int x = (pixelA.getX() + pixelB.getX()) / 2;
+        int y = (pixelA.getY() + pixelB.getY()) / 2;
+        this.center = new Vector2(x, y);
     }
 
     public void setDimension() {
@@ -114,6 +143,13 @@ public class State implements GeoLocation {
         }
     }
 
+    public void setRegiment() {
+        this.regiments = new ArrayList<>();
+        for(int i = 0; i < this.provinces.size(); i++) {
+            this.regiments.add(new Regiment());
+        }
+    }
+
     public void createTexture() {
         Pixmap pixmap = new Pixmap(this.getDimension().getWidth(), this.getDimension().getHeight(), Pixmap.Format.RGBA8888);
         Pixmap pixmapSelected = new Pixmap(this.getDimension().getWidth(), this.getDimension().getHeight(), Pixmap.Format.RGBA8888);
@@ -138,6 +174,13 @@ public class State implements GeoLocation {
         batch.draw(this.texture, this.origin.x, this.origin.y);
         batch.draw(this.texture, this.origin.x - WORLD_WIDTH, this.origin.y);
         batch.draw(this.texture, this.origin.x + WORLD_WIDTH, this.origin.y);
+        int offset = 0;
+        for(Regiment regiment : this.regiments) {
+            regiment.draw(batch, this.center.x, this.center.y + offset, this.dimension);
+            regiment.draw(batch, this.center.x - WORLD_WIDTH, this.center.y + offset, this.dimension);
+            regiment.draw(batch, this.center.x + WORLD_WIDTH, this.center.y + offset, this.dimension);
+            offset -= this.dimension.getScale() * 2;
+        }
     }
 
     public void drawSelected(SpriteBatch batch) {

@@ -61,8 +61,8 @@ public class NewGameScreen implements Screen {
         rootTable.add(selectedScenarioTable).expand().top().left();
 
         Image orderScenarioImage = this.newGameUi.createOrderScenarioImage();
-        orderScenarioImage.setPosition((stage.getWidth() - orderScenarioImage.getWidth()) / 2, stage.getHeight() - orderScenarioImage.getHeight());
-        stage.addActor(orderScenarioImage);
+        orderScenarioImage.setPosition((this.stage.getWidth() - orderScenarioImage.getWidth()) / 2, this.stage.getHeight() - orderScenarioImage.getHeight());
+        this.stage.addActor(orderScenarioImage);
     }
 
     public World getWorld() {

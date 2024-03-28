@@ -15,7 +15,7 @@ import static com.strategygame.frontlines1950.Frontlines1950.WORLD_WIDTH;
 
 public class MapLabel {
     private final BitmapFont font;
-    private final Country entity;
+    private final Country country;
     private final GlyphLayout glyphLayout;
     private final Matrix4 transformMatrix;
     private final String text;
@@ -23,13 +23,13 @@ public class MapLabel {
     private Province.Pixel pixelA;
     private Province.Pixel pixelB;
 
-    public MapLabel(String fontFile, String text, Country entity) {
+    public MapLabel(String fontFile, String text, Country country) {
         this.font = new BitmapFont(Gdx.files.internal(fontFile));
         this.font.setUseIntegerPositions(false);
         this.glyphLayout = new GlyphLayout();
         this.transformMatrix = new Matrix4().idt();
         this.text = text;
-        this.entity = entity;
+        this.country = country;
         this.pixelA = null;
         this.pixelB = null;
     }
@@ -43,7 +43,7 @@ public class MapLabel {
             for (int j = i + step; j < borderPixelsList.size(); j += step) {
                 Province.Pixel tempPixelB = borderPixelsList.get(j);
                 int distance = (int) Math.sqrt(Math.pow(tempPixelA.getX() - tempPixelB.getX(), 2) + Math.pow(tempPixelA.getY() - tempPixelB.getY(), 2));
-                if (distance > this.maxDistance && Bresenham.isLineInCountry(tempPixelA, tempPixelB, entity) && tempPixelA.getX() < tempPixelB.getX()) {
+                if (distance > this.maxDistance && Bresenham.isLineInCountry(tempPixelA, tempPixelB, this.country) && tempPixelA.getX() < tempPixelB.getX()) {
                     this.maxDistance = distance;
                     this.pixelA = tempPixelA;
                     this.pixelB = tempPixelB;
@@ -66,7 +66,7 @@ public class MapLabel {
 
     public void draw(SpriteBatch batch, Set<Province.Pixel> borderPixels) {
         if(this.pixelA == null || this.pixelB == null) {
-            if(entity.getNumberStates() > 0) {
+            if(this.country.getNumberStates() > 0) {
                 this.calculateDistance(borderPixels);
             } else {
                 return;
@@ -85,15 +85,15 @@ public class MapLabel {
         Matrix4 newTransformMatrix = this.createTransformMatrix(midX, midY, angle);
 
         batch.setTransformMatrix(newTransformMatrix);
-        this.font.draw(batch, glyphLayout, midX - glyphLayout.width / 2, midY);
+        this.font.draw(batch, this.glyphLayout, midX - this.glyphLayout.width / 2, midY);
 
         newTransformMatrix = this.createTransformMatrix(midX - WORLD_WIDTH, midY, angle);
         batch.setTransformMatrix(newTransformMatrix);
-        this.font.draw(batch, glyphLayout, midX - WORLD_WIDTH - glyphLayout.width / 2, midY);
+        this.font.draw(batch, this.glyphLayout, midX - WORLD_WIDTH - this.glyphLayout.width / 2, midY);
 
         newTransformMatrix = this.createTransformMatrix(midX + WORLD_WIDTH, midY, angle);
         batch.setTransformMatrix(newTransformMatrix);
-        this.font.draw(batch, glyphLayout, midX + WORLD_WIDTH - glyphLayout.width / 2, midY);
+        this.font.draw(batch, this.glyphLayout, midX + WORLD_WIDTH - this.glyphLayout.width / 2, midY);
 
         batch.setTransformMatrix(oldTransformMatrix);
     }

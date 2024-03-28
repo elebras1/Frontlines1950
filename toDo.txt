@@ -1,6 +1,8 @@
 Gestion de l'affichage des noms et regiments selon le zoom de la camera du jeu
 
-Standardiser les types L'interface GeoLocation et les classes qui l'implemente
+Selon la taille du zoom afficher les frontieres d'un pays et son nom ou les frontieres des etats avec les régiments
+
+Standardiser les types de l'interface GeoLocation et les classes qui l'implemente
 
 Afficher les regiments par Etat avec un systeme d'empilement de brigade (1 brigade = 1 image)
 
@@ -9,8 +11,6 @@ Modifier toutes les classes Screen pour les rendres plus orienté objet
 
 Trouver une solution pour la page loadingScreen, pas possible d'avoir deux thread sachant que les objets opengl ne
     peuvent etre utilisé que dans le thread principal
-
-Selon la taille du zoom afficher les frontiere d'un pays et son nom ou les frontieres des etats avec les régiments
 
 Ajouter l'ui dans GameScreen qui d'attaquer ou soutenir un State avec des régiments
     -> selon l'action choisi le cuseur changera

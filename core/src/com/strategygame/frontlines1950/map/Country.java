@@ -179,7 +179,7 @@ public class Country implements GeoLocation {
         batch.draw(this.texture, this.origin.x, this.origin.y);
         batch.draw(this.texture, this.origin.x - WORLD_WIDTH, this.origin.y);
         batch.draw(this.texture, this.origin.x + WORLD_WIDTH, this.origin.y);
-        if(zoom > 0.5) {
+        if(zoom > 0.5f) {
             this.label.draw(batch, this.borderPixels);
         } else {
             for(State state : this.states) {

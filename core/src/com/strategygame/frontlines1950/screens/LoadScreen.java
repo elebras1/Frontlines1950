@@ -10,12 +10,17 @@ import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.strategygame.frontlines1950.map.World;
 import com.strategygame.frontlines1950.ui.AnimatedCursor;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
 import java.util.concurrent.CompletableFuture;
 
 public class LoadScreen implements Screen {
     private final SpriteBatch batch;
     private Image image;
     private final AnimatedCursor animatedCursor;
+    private final List<String> images = new ArrayList<>(Arrays.asList("load_1.png", "load_2.png", "load_3.png", "load_4.png", "load_5.png", "load_6.png", "load_7.png", "load_8.png", "load_9.png"));
 
     public LoadScreen(Game game) {
         this.batch = new SpriteBatch();
@@ -47,7 +52,9 @@ public class LoadScreen implements Screen {
     }
 
     private void showImage() {
-        this.image = new Image(new Texture(Gdx.files.internal("loadingscreens/load_1.png")));
+        Random rand = new Random();
+        String imageNameFile = this.images.get(rand.nextInt(this.images.size()));
+        this.image = new Image(new Texture(Gdx.files.internal("loadingscreens/" + imageNameFile)));
     }
 
     @Override

@@ -45,6 +45,9 @@ public class NewGameUi {
         playButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
+                if(newGameScreen.getSelectedCountry() == null) {
+                    return;
+                }
                 newGameScreen.getWorld().deselectCountry();
                 newGameScreen.getGame().setScreen(new GameScreen(newGameScreen.getWorld(), newGameScreen.getGame(), newGameScreen.getSelectedCountry()));
                 newGameScreen.dispose();

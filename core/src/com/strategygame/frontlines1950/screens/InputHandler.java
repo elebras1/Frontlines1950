@@ -16,10 +16,25 @@ import java.util.List;
 import static com.strategygame.frontlines1950.Frontlines1950.WORLD_WIDTH;
 
 public class InputHandler<T extends Screen> implements InputProcessor {
+    /**
+     * The camera used to move around the world.
+     */
     final OrthographicCamera cam;
+    /**
+     * The world to interact with.
+     */
     final World world;
+    /**
+     * The delta time.
+     */
     private float delta = 0;
+    /**
+     * The screen to interact with.
+     */
     final T screen;
+    /**
+     * The edge size of the screen.
+     */
     private final int edgeSize = 50;
 
     public InputHandler(OrthographicCamera cam, World world, T screen) {
@@ -68,7 +83,7 @@ public class InputHandler<T extends Screen> implements InputProcessor {
             cam.translate(0, -speed * this.cam.zoom, 0);
         }
 
-        this.cam.zoom = MathUtils.clamp(this.cam.zoom, 0.1f, WORLD_WIDTH / this.cam.viewportWidth);
+        this.cam.zoom = MathUtils.clamp(this.cam.zoom, 0f, WORLD_WIDTH / this.cam.viewportWidth);
     }
 
     public void handleInput() {
@@ -90,7 +105,7 @@ public class InputHandler<T extends Screen> implements InputProcessor {
             this.cam.translate(0, -speed * this.cam.zoom, 0);
         }
 
-        this.cam.zoom = MathUtils.clamp(this.cam.zoom, 0.1f, WORLD_WIDTH / this.cam.viewportWidth);
+        this.cam.zoom = MathUtils.clamp(this.cam.zoom, 0f, WORLD_WIDTH / this.cam.viewportWidth);
     }
 
     @Override
@@ -148,8 +163,13 @@ public class InputHandler<T extends Screen> implements InputProcessor {
     public boolean scrolled(float amountX, float amountY) {
         float speed = 0.25f;
         float zoom = amountY * speed;
+        float speed2 = 0.05f;
+        float zoom2 = amountY * speed2;
 
-        if ((this.cam.zoom + zoom) >= 0.00001f && (this.cam.zoom + zoom) <= WORLD_WIDTH / this.cam.viewportWidth) {
+        if((this.cam.zoom + zoom2 > 0f) && (this.cam.zoom < 1f)) {
+            this.cam.zoom += zoom2;
+        }
+        else if ((this.cam.zoom + zoom) <= WORLD_WIDTH / this.cam.viewportWidth && (this.cam.zoom + zoom > 0f)) {
             this.cam.zoom += zoom;
         }
 

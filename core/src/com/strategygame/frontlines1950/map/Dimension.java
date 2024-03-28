@@ -46,9 +46,17 @@ public class Dimension {
 
     /**
      * Set the height of the dimension
-     * @param height
+     * @param height the height of the dimension
      */
     public void setHeight(int height) {
         this.height = height;
+    }
+
+    /**
+     * Get the scale of the dimension
+     * @return the scale of the dimension
+     */
+    public int getScale() {
+        return this.height / this.width;
     }
 }

@@ -21,26 +21,22 @@ public class World {
 
     public World() {
         this.dataManager = new DataManager();
+        long startTimeLoadCountries = System.currentTimeMillis();
         this.loadCountries();
+        long endTimeLoadCountries = System.currentTimeMillis();
+        System.out.println("Load countries: " + (endTimeLoadCountries - startTimeLoadCountries) / 1000 + "sec");
+        long startTimeLoadStatesAndProvinces = System.currentTimeMillis();
         this.loadStatesAndProvinces();
-        for(Country country : countries) {
-            country.setOrigin();
-            country.setDimension();
-            for(State state : country.getStates()) {
-                state.setOrigin();
-                state.setDimension();
-                for(Province province : state.getProvinces()) {
-                    province.setOrigin();
-                    province.setDimension();
-                }
-                state.setBorderPixels();
-                state.createTexture();
-            }
-            country.setBorderPixels();
-            country.createTexture();
-            country.createSelectedTexture();
-        }
+        long endTimeLoadStatesAndProvinces = System.currentTimeMillis();
+        System.out.println("Load states and provinces: " + (endTimeLoadStatesAndProvinces - startTimeLoadStatesAndProvinces) / 1000 + "sec");
+        long startTimeInitCountries = System.currentTimeMillis();
+        this.initCountries();
+        long endTimeInitCountries = System.currentTimeMillis();
+        System.out.println("Init countries: " + (endTimeInitCountries - startTimeInitCountries) / 1000 + "sec");
+        long startTimeCreateWaterTexture = System.currentTimeMillis();
         this.createWaterTexture();
+        long endTimeCreateWaterTexture = System.currentTimeMillis();
+        System.out.println("Create water texture: " + (endTimeCreateWaterTexture - startTimeCreateWaterTexture) / 1000 + "sec");
     }
 
     public void loadCountries() {
@@ -159,6 +155,28 @@ public class World {
 
     public void deselectState() {
         this.selectedState = null;
+    }
+
+    public void initCountries() {
+        for(Country country : countries) {
+            country.setOrigin();
+            country.setDimension();
+            for(State state : country.getStates()) {
+                state.setOrigin();
+                state.setDimension();
+                state.setRegiment();
+                for(Province province : state.getProvinces()) {
+                    province.setOrigin();
+                    province.setDimension();
+                }
+                state.setBorderPixels();
+                state.setCenter();
+                state.createTexture();
+            }
+            country.setBorderPixels();
+            country.createTexture();
+            country.createSelectedTexture();
+        }
     }
 
     public void createWaterTexture() {
