@@ -15,6 +15,7 @@ import com.strategygame.frontlines1950.map.Country;
 import com.strategygame.frontlines1950.map.World;
 import com.strategygame.frontlines1950.ui.CursorChanger;
 import com.strategygame.frontlines1950.ui.NewGameUi;
+import com.strategygame.frontlines1950.utils.Debug;
 
 import static com.strategygame.frontlines1950.Frontlines1950.WORLD_HEIGHT;
 import static com.strategygame.frontlines1950.Frontlines1950.WORLD_WIDTH;
@@ -29,6 +30,7 @@ public class NewGameScreen implements Screen {
     private Country selectedCountry;
     private Stage stage;
     private CursorChanger cursorChanger;
+    private Debug debug;
 
     public NewGameScreen(World world, Game game) {
         this.world = world;
@@ -40,6 +42,7 @@ public class NewGameScreen implements Screen {
         this.batch = new SpriteBatch();
         this.inputHandler = new NewGameInputHandler<>(cam, world, this);
         this.newGameUi = new NewGameUi(this);
+        this.debug = new Debug();
         this.initializeUi();
     }
 
@@ -63,6 +66,10 @@ public class NewGameScreen implements Screen {
         Image orderScenarioImage = this.newGameUi.createOrderScenarioImage();
         orderScenarioImage.setPosition((this.stage.getWidth() - orderScenarioImage.getWidth()) / 2, this.stage.getHeight() - orderScenarioImage.getHeight());
         this.stage.addActor(orderScenarioImage);
+
+        for(Label label : this.debug.firstConfiguration().values()) {
+            this.stage.addActor(label);
+        }
     }
 
     public World getWorld() {
@@ -115,8 +122,12 @@ public class NewGameScreen implements Screen {
         this.inputHandler.setDelta(delta);
         this.inputHandler.handleInput();
 
+        this.debug.actualize();
+
         this.stage.act();
         this.stage.draw();
+
+
     }
 
     @Override

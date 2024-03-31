@@ -20,6 +20,7 @@ import com.strategygame.frontlines1950.map.World;
 import com.strategygame.frontlines1950.ui.ActionSelectorUi;
 import com.strategygame.frontlines1950.ui.CursorChanger;
 import com.strategygame.frontlines1950.ui.TopbarUi;
+import com.strategygame.frontlines1950.utils.Debug;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,8 +40,8 @@ public class GameScreen implements Screen {
     private int timeSpeed = 3;
     private CursorChanger cursorChanger;
     private TopbarUi topbarUi;
-
     private ActionSelectorUi actionSelectorUi;
+    private Debug debug;
 
     public GameScreen(World world, Game game, Country playerCountry) {
         this.world = world;
@@ -61,6 +62,7 @@ public class GameScreen implements Screen {
         }
         this.topbarUi = new TopbarUi(this);
         this.actionSelectorUi = new ActionSelectorUi(this);
+        this.debug = new Debug();
         this.initializeUi();
         this.cursorChanger = new CursorChanger();
         this.cursorChanger.defaultCursor();
@@ -78,6 +80,7 @@ public class GameScreen implements Screen {
         rootTable.padRight(10).padBottom(10);
         rootTable.setFillParent(true);
         this.stage.addActor(rootTable);
+
         // Topbar table
         Table topbarTable = this.topbarUi.create();
         rootTable.add(topbarTable).expand().left().top();
@@ -85,9 +88,10 @@ public class GameScreen implements Screen {
         Table actionTable = this.actionSelectorUi.create();
         rootTable.add(actionTable).bottom();
 
-        /*this.fpsLabel = new Label("", this.skinTopbar, "green");
-        this.fpsLabel.setPosition(stage.getWidth() - 60, stage.getHeight() - 20);
-        this.stage.addActor(this.fpsLabel);*/
+        // Debug labels
+        for(Label label : this.debug.firstConfiguration().values()) {
+            this.stage.addActor(label);
+        }
     }
 
     public int getTimeSpeed() {
@@ -138,14 +142,13 @@ public class GameScreen implements Screen {
         this.world.render(this.batch, this.inputHandler.getCamera().zoom);
         this.batch.end();
 
-        //Know if the mouse over a country
         this.inputHandler.setDelta(delta);
         List<Table> tables = new ArrayList<>();
         tables.add(this.topbarUi.getTable());
         tables.add(this.actionSelectorUi.getTable());
         this.inputHandler.handleInput(tables);
 
-        //this.fpsLabel.setText(Gdx.graphics.getFramesPerSecond());
+        this.debug.actualize();
 
         this.stage.act();
         this.stage.draw();

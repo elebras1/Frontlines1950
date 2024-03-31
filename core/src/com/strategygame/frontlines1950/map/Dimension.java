@@ -56,7 +56,7 @@ public class Dimension {
      * Get the scale of the dimension
      * @return the scale of the dimension
      */
-    public int getScale() {
-        return this.height / this.width;
+    public float getScale() {
+        return (float) this.height / this.width;
     }
 }

@@ -174,11 +174,11 @@ public class State implements GeoLocation {
         batch.draw(this.texture, this.origin.x, this.origin.y);
         batch.draw(this.texture, this.origin.x - WORLD_WIDTH, this.origin.y);
         batch.draw(this.texture, this.origin.x + WORLD_WIDTH, this.origin.y);
-        int offset = 0;
+        float offset = 0;
         for(Regiment regiment : this.regiments) {
-            regiment.draw(batch, this.center.x, this.center.y + offset, this.dimension);
-            regiment.draw(batch, this.center.x - WORLD_WIDTH, this.center.y + offset, this.dimension);
-            regiment.draw(batch, this.center.x + WORLD_WIDTH, this.center.y + offset, this.dimension);
+            regiment.draw(batch, this.center.x, this.center.y + offset, this.dimension.getScale());
+            regiment.draw(batch, this.center.x - WORLD_WIDTH, this.center.y + offset, this.dimension.getScale());
+            regiment.draw(batch, this.center.x + WORLD_WIDTH, this.center.y + offset, this.dimension.getScale());
             offset -= this.dimension.getScale() * 2;
         }
     }
